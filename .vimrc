@@ -22,8 +22,17 @@ silent! color desert
 " Set tab to four spaces
 set tabstop=4
 
+" Set the character count marker at 80
+set cc=80
+
 " Close brackets whenever a open bracket is placed
 inoremap {<CR> {<CR><TAB><CR>}<UP><END>
 
 " Enable smart indentation
 set smartindent
+
+" A funtion for installing Vundle
+function InstallVundle()
+		PluginInstall
+		qa
+endfunction
