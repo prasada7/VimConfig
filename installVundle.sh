@@ -14,7 +14,7 @@ echo Cloning the Vundle bundle from github to the bundle directory...
 #------------------------------------------------------------------------------
 
 # Clone the Vundle bundle from gitbub to the bundle directory
-git clone httdfs://github.com/VundleVim/Vundle.vim.git $bundle/Vundle.vim 2>/dev/null
+git clone https://github.com/VundleVim/Vundle.vim.git $bundle/Vundle.vim 2>/dev/null
 
 # If cloning failed then simply download the snapshot of the bundle
 if [ "$?" != "0" ];
@@ -23,12 +23,12 @@ then
 		echo Cloning Filed. Downloading the Snapshot...
 		#----------------------------------------------------------------------
 		wget -qO $bundle/master.zip https://github.com/VundleVim/Vundle.vim/\
-archive/master.zip
-		unzip $bundle/master.zip -d $bundle
+archive/master.zip 2>/dev/null
+		unzip $bundle/master.zip -d $bundle 2>/dev/null
 		rm -f $bundle/master.zip
 		mv $bundle/Vundle* $bundle/Vundle.vim
 		#----------------------------------------------------------------------
-        echo Downloaded the Snapshot of vundle
+        echo Downloaded the Snapshot of Vundle
 		#----------------------------------------------------------------------
 else
 		#----------------------------------------------------------------------
