@@ -20,16 +20,17 @@ nnoremap <F4> :NERDTreeToggle<CR>
 silent! color desert
 
 " Set tab to four spaces
-set tabstop=4
+set softtabstop=4
+set expandtab
 
 " Set the character count marker at 80
 set cc=80
 
 " Close brackets whenever a open bracket is placed
-inoremap {<CR> {<CR><TAB><CR>}<UP><END>
+inoremap {<CR> {<CR>i<CR>}<UP><bs><tab>
 
 " Enable smart indentation
-set smartindent
+set autoindent
 
 " A funtion for installing Vundle
 function InstallVundle()
