@@ -28,12 +28,21 @@ set cc=80
 
 " Close brackets whenever a open bracket is placed
 inoremap {<CR> {<CR>i<CR>}<UP><bs><tab>
+inoremap ( ()<LEFT>
+inoremap () ()
+inoremap [ []<LEFT>
+inoremap [] []
 
-" Enable smart indentation
+" Enable auto indentation
 set autoindent
 
 " A funtion for installing Vundle
 function InstallVundle()
 		PluginInstall
 		qa
+endfunction
+
+" A function for removing trailing white spaces
+function Trailing()
+        %s/\s\+$//g
 endfunction
