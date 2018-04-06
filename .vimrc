@@ -20,7 +20,7 @@ nnoremap <F4> :NERDTreeToggle<CR>
 silent! color desert
 
 " Set tab to four spaces
-set softtabstop=4
+set tabstop=4
 set expandtab
 
 " Set the character count marker at 80
@@ -33,6 +33,15 @@ inoremap ( ()<LEFT>
 inoremap () ()
 inoremap [ []<LEFT>
 inoremap [] []
+
+" Allow the mouse to be used as a cursor
+set mouse=a
+
+" Map Ctrl+x to cut in visual mode
+vmap <C-x> ygvx
+
+" Map Ctrl+v to paster in insert mode
+imap <C-v> <C-o>p
 
 " Highlight all trailing white spaces
 set hlsearch
