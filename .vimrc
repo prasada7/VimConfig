@@ -24,8 +24,11 @@ set tabstop=4
 set expandtab
 
 " Set the character count marker at 80
-set cc=80
 hi ColorColumn ctermbg=235
+let &colorcolumn="80".join(range(79,1000),",")
+
+" Set the non text region background to grey as well
+hi NonText ctermbg=235
 
 " Enable and configure line count
 set nu
@@ -51,8 +54,7 @@ imap <C-v> <C-o>p
 " Highlight all trailing white spaces
 set hlsearch
 silent! /\s\+$
-hi Search ctermbg=DarkGreen
-hi Search ctermfg=Blue
+hi Search ctermbg=235
 
 " Enable auto indentation
 set autoindent
