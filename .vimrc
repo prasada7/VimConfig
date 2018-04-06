@@ -25,7 +25,12 @@ set expandtab
 
 " Set the character count marker at 80
 set cc=80
-hi ColorColumn ctermbg=Cyan
+hi ColorColumn ctermbg=235
+
+" Enable and configure line count
+set nu
+hi LineNr ctermbg=235
+hi LineNr ctermfg=244
 
 " Close brackets whenever a open bracket is placed
 inoremap {<CR> {<CR>i<CR>}<UP><bs><tab>
