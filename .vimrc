@@ -25,6 +25,7 @@ set expandtab
 
 " Set the character count marker at 80
 set cc=80
+hi ColorColumn ctermbg=Cyan
 
 " Close brackets whenever a open bracket is placed
 inoremap {<CR> {<CR>i<CR>}<UP><bs><tab>
@@ -33,13 +34,19 @@ inoremap () ()
 inoremap [ []<LEFT>
 inoremap [] []
 
+" Highlight all trailing white spaces
+set hlsearch
+silent! /\s\+$
+hi Search ctermbg=DarkGreen
+hi Search ctermfg=Blue
+
 " Enable auto indentation
 set autoindent
 
 " A funtion for installing Vundle
 function InstallVundle()
-		PluginInstall
-		qa
+	PluginInstall
+	qa
 endfunction
 
 " A function for removing trailing white spaces
