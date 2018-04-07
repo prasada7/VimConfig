@@ -1,5 +1,7 @@
-# Ignore everything except the install script, the .vimrc, and the .gitignore
+# Ignore everything except the install script, the .vimrc, the markdown file
+# and the .gitignore
 *
 !.gitignore
 !.vimrc
 !installVundle.sh
+!*.md
