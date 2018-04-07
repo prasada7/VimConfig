@@ -25,6 +25,7 @@ set expandtab
 
 " Set the character count marker at 80
 hi ColorColumn ctermbg=235
+hi ColorColumn ctermfg=red
 let &colorcolumn="80".join(range(79,1000),",")
 
 " Set the non text region background to grey as well
