@@ -23,6 +23,11 @@ silent! color desert
 set tabstop=4
 set expandtab
 
+" Display the status line and change its color
+set laststatus=2
+hi StatusLine ctermfg=235
+hi StatusLine ctermbg=244
+
 " Set the character count marker at 80
 hi ColorColumn ctermbg=235
 hi ColorColumn ctermfg=red
