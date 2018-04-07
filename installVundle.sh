@@ -6,7 +6,7 @@ bundle=~/.vim/bundle
 # Check if the bundle folder exists, create if it does not
 if [ ! -d $bundle ];
 then
-	    mkdir $bundle
+        mkdir $bundle
 fi
 
 #------------------------------------------------------------------------------
@@ -20,21 +20,21 @@ ev/null
 # If cloning failed then simply download the snapshot of the bundle
 if [ "$?" != "0" ];
 then
-		#----------------------------------------------------------------------
-		echo Cloning Filed. Downloading the Snapshot...
-		#----------------------------------------------------------------------
-		wget -qO $bundle/master.zip https://github.com/VundleVim/Vundle.vim/\
+        #----------------------------------------------------------------------
+        echo Cloning Filed. Downloading the Snapshot...
+        #----------------------------------------------------------------------
+        wget -qO $bundle/master.zip https://github.com/VundleVim/Vundle.vim/\
 archive/master.zip 2>/dev/null
-		unzip $bundle/master.zip -d $bundle 2>/dev/null
-		rm -f $bundle/master.zip
-		mv $bundle/Vundle* $bundle/Vundle.vim
-		#----------------------------------------------------------------------
+        unzip $bundle/master.zip -d $bundle 2>/dev/null
+        rm -f $bundle/master.zip
+        mv $bundle/Vundle* $bundle/Vundle.vim
+        #----------------------------------------------------------------------
         echo Downloaded the Snapshot of Vundle
-		#----------------------------------------------------------------------
+        #----------------------------------------------------------------------
 else
-		#----------------------------------------------------------------------
-		echo Cloning complete
-		#----------------------------------------------------------------------
+        #----------------------------------------------------------------------
+        echo Cloning complete
+        #----------------------------------------------------------------------
 fi
 
 # Create a symbolic line to the vimrc from the home direcory
@@ -44,21 +44,21 @@ ln -s ~/.vim/.vimrc ~/.vimrc 2>/dev/null
 # -ally
 if [ "$?" != "0" ];
 then
-		#----------------------------------------------------------------------
-		echo Creating a symbolic link for the .vimrc failed since there alread\
-				y exits one. Please copy the .vimrc to your home accordingly
-		#----------------------------------------------------------------------
-		exit 1
+        #----------------------------------------------------------------------
+        echo Creating a symbolic link for the .vimrc failed since there alread\
+                y exits one. Please copy the .vimrc to your home accordingly
+        #----------------------------------------------------------------------
+        exit 1
 fi
 
 # Install the vundle plugin
 if ! vim -c "call InstallVundle()" ;
 then
-		#----------------------------------------------------------------------
-		echo Installation failed.
-		#----------------------------------------------------------------------
+        #----------------------------------------------------------------------
+        echo Installation failed.
+        #----------------------------------------------------------------------
 else
-		#----------------------------------------------------------------------
-		echo Installation successful
-		#----------------------------------------------------------------------
+        #----------------------------------------------------------------------
+        echo Installation successful
+        #----------------------------------------------------------------------
 fi
