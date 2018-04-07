@@ -19,6 +19,8 @@ nnoremap <F4> :NERDTreeToggle<CR>
 " Set the default color to desert
 silent! color desert
 
+set shortmess=I
+
 " Set tab to four spaces
 set tabstop=4
 set expandtab
