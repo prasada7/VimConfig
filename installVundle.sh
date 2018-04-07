@@ -4,9 +4,9 @@
 bundle=~/.vim/bundle
 
 # Check if the bundle folder exists, create if it does not
-if [ ! -d $bundle ];
+if [ ! -d "$bundle" ];
 then
-        mkdir $bundle
+        mkdir "$bundle"
 fi
 
 #------------------------------------------------------------------------------
@@ -14,7 +14,7 @@ echo Cloning the Vundle bundle from github to the bundle directory...
 #------------------------------------------------------------------------------
 
 # Clone the Vundle bundle from gitbub to the bundle directory
-git clone https://github.com/VundleVim/Vundle.vim.git $bundle/Vundle.vim 2>/d\
+git clone https://github.com/VundleVim/Vundle.vim.git "$bundle"/Vundle.vim 2>/d\
 ev/null
 
 # If cloning failed then simply download the snapshot of the bundle
@@ -23,11 +23,11 @@ then
         #----------------------------------------------------------------------
         echo Cloning Filed. Downloading the Snapshot...
         #----------------------------------------------------------------------
-        wget -qO $bundle/master.zip https://github.com/VundleVim/Vundle.vim/\
+        wget -qO "$bundle"/master.zip https://github.com/VundleVim/Vundle.vim/\
 archive/master.zip 2>/dev/null
-        unzip $bundle/master.zip -d $bundle 2>/dev/null
-        rm -f $bundle/master.zip
-        mv $bundle/Vundle* $bundle/Vundle.vim
+        unzip "$bundle"/master.zip -d "$bundle" 2>/dev/null
+        rm -f "$bundle"/master.zip
+        mv "$bundle"/Vundle* "$bundle"/Vundle.vim
         #----------------------------------------------------------------------
         echo Downloaded the Snapshot of Vundle
         #----------------------------------------------------------------------
