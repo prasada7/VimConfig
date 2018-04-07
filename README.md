@@ -36,8 +36,8 @@ mode
 * Use F5 to save a file
 * Use q in normal mode to close a window (force quit is not remapped)
 * Use F4 to toggle the NERDTree Plugin
-> For more information on NERDTree visit this [link](https://github.com/scroo
-loose/nerdtree)
+> For more information on NERDTree visit this
+[link](https://github.com/scrooloose/nerdtree)
 
 
 ## Making use of the Vundle Plugin installer
