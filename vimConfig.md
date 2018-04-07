@@ -33,6 +33,8 @@ certain mouse based functionality, such as pasting with right click)
 > Assuming the mouse->cursor setting is enabled
 * Ctrl+x is cut when in __visual__ mode and Ctrl+v is paste when in __insert__
 mode
+* Use F5 to save a file
+* Use q in normal mode to close a window (force quit is not remapped)
 * Use F4 to toggle the NERDTree Plugin
 > For more information on NERDTree visit this [link](https://github.com/scroo
 loose/nerdtree)

@@ -63,6 +63,12 @@ set autoindent
 command Trailing execute "call Trailing()"
 nnoremap <F2> :Trailing<CR>
 
+" Map F5 to save the file
+nnoremap <F5> :w<CR>
+
+" Map q to quit window
+nnoremap q :q<CR>
+
 " A funtion for installing Vundle
 function InstallVundle()
 	PluginInstall
