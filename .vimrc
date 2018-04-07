@@ -59,6 +59,10 @@ hi Search ctermbg=235
 " Enable auto indentation
 set autoindent
 
+" Create a command for removing white spaces and map it to F2
+command Trailing execute "call Trailing()"
+nnoremap <F2> :Trailing<CR>
+
 " A funtion for installing Vundle
 function InstallVundle()
 	PluginInstall
@@ -67,5 +71,5 @@ endfunction
 
 " A function for removing trailing white spaces
 function Trailing()
-        %s/\s\+$//g
+        %s/\s\+$//ge
 endfunction
