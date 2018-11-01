@@ -77,8 +77,9 @@ nnoremap <F5> :w<CR>
 " Map q to quit window
 nnoremap q :q<CR>
 
-" Highlight cursor line
-set cursorline
+" Highlight cursor line (highlights on insert mode)
+autocmd InsertEnter * set cursorline
+autocmd InsertLeave * set nocursorline
 hi clear CursorLine
 hi CursorLineNr ctermfg=white ctermbg=green
 
