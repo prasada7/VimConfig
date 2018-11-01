@@ -77,6 +77,11 @@ nnoremap <F5> :w<CR>
 " Map q to quit window
 nnoremap q :q<CR>
 
+" Highlight cursor line
+set cursorline
+hi clear CursorLine
+hi CursorLineNr ctermfg=white ctermbg=green
+
 " A funtion for installing Vundle
 function InstallVundle()
 	PluginInstall
