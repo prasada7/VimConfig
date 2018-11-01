@@ -5,6 +5,9 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Include fuzzy finder
+set rtp+=~/.fzf
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'The-NERD-tree'
@@ -16,8 +19,9 @@ filetype plugin indent on    " required
 " Map the Nerd tree toggle to F4
 nnoremap <F4> :NERDTreeToggle<CR>
 
-" Set the default color to desert
+" Set the default color to desert and background color to grey
 silent! color desert
+hi Normal ctermbg=234
 
 set shortmess=I
 
@@ -51,7 +55,7 @@ inoremap [ []<LEFT>
 inoremap [] []
 
 " Allow the mouse to be used as a cursor
-set mouse=a
+" set mouse=a
 
 " Map Ctrl+x to cut in visual mode
 vmap <C-x> ygvx
@@ -82,6 +86,9 @@ autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
 hi clear CursorLine
 hi CursorLineNr ctermfg=white ctermbg=green
+
+" Map CTRL + SHIFT + P For fuzzy finder
+nnoremap <C-p> :FZF<CR>
 
 " A funtion for installing Vundle
 function InstallVundle()
