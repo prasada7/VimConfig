@@ -8,9 +8,11 @@ call vundle#begin()
 " Include fuzzy finder
 set rtp+=~/.fzf
 
-" let Vundle manage Vundle, required
+" Plugins for Vim
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'The-NERD-tree'
+Plugin 'itchyny/lightline.vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -89,6 +91,10 @@ hi CursorLineNr ctermfg=white ctermbg=green
 
 " Map CTRL + SHIFT + P For fuzzy finder
 nnoremap <C-p> :FZF<CR>
+
+" Map Alt arrow to moving a line up or down
+nnoremap <M-UP> ddkkp
+nnoremap <M-DOWN> ddp
 
 " A funtion for installing Vundle
 function InstallVundle()
