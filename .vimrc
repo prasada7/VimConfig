@@ -16,6 +16,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mattn/emmet-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -102,6 +104,9 @@ nnoremap <M-DOWN> ddp
 
 " Shortcut to replace the word the cursor is on
 nnoremap <C-x> ebcw
+
+" Use jsx syntax for marko files
+autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
 
 " A funtion for installing Vundle
 function InstallVundle()
