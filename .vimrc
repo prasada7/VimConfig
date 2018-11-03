@@ -13,6 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'The-NERD-tree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -95,6 +96,9 @@ nnoremap <C-p> :FZF<CR>
 " Map Alt arrow to moving a line up or down
 nnoremap <M-UP> ddkkp
 nnoremap <M-DOWN> ddp
+
+" Shortcut to replace the word the cursor is on
+nnoremap <C-x> ebcw
 
 " A funtion for installing Vundle
 function InstallVundle()
