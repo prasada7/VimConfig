@@ -61,11 +61,7 @@ hi LineNr ctermbg=235
 hi LineNr ctermfg=244
 
 " Close brackets whenever a open bracket is placed
-inoremap {<CR> {<CR>i<CR>}<UP><bs><tab>
-inoremap ( ()<LEFT>
-inoremap () ()
-inoremap [ []<LEFT>
-inoremap [] []
+inoremap {<CR> {<CR>}<UP><C-o>o<tab>
 
 " Allow the mouse to be used as a cursor
 " set mouse=a
@@ -102,9 +98,11 @@ hi clear CursorLine
 " Map CTRL + P For fuzzy finder
 nnoremap <C-p> :FZF<CR>
 
-" Map Alt arrow to moving a line up or down
+" Map Alt arrow to moving a line up or down and placing cursor to start/end
 nnoremap <M-UP> ddkkp
 nnoremap <M-DOWN> ddp
+map <M-RIGHT> <END>
+map <M-LEFT> <HOME>
 
 " Shortcut to replace the word the cursor is on
 nnoremap <C-x> ebcw
