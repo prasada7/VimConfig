@@ -18,6 +18,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'marcweber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -36,6 +39,7 @@ set nowrap
 
 " Set tab to four spaces
 set tabstop=4
+set shiftwidth=4
 set expandtab
 
 " Display the status line and change its color
