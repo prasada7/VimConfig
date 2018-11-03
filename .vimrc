@@ -30,6 +30,7 @@ set background=dark
 hi Normal ctermbg=234
 
 set shortmess=I
+set nowrap
 
 " Set tab to four spaces
 set tabstop=4
