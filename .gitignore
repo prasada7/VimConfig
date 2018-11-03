@@ -2,6 +2,7 @@
 # and the .gitignore
 *
 !.gitignore
+!snippets/_.snippets
 !.vimrc
 !installVundle.sh
 !*.md
