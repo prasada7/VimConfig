@@ -14,6 +14,8 @@ Plugin 'The-NERD-tree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mattn/emmet-vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'morhetz/gruvbox'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -23,7 +25,8 @@ filetype plugin indent on    " required
 nnoremap <F4> :NERDTreeToggle<CR>
 
 " Set the default color to desert and background color to grey
-silent! color desert
+silent! color gruvbox
+set background=dark
 hi Normal ctermbg=234
 
 set shortmess=I
@@ -88,9 +91,8 @@ nnoremap q :q<CR>
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
 hi clear CursorLine
-hi CursorLineNr ctermfg=white ctermbg=green
 
-" Map CTRL + SHIFT + P For fuzzy finder
+" Map CTRL + P For fuzzy finder
 nnoremap <C-p> :FZF<CR>
 
 " Map Alt arrow to moving a line up or down
@@ -110,3 +112,4 @@ endfunction
 function Trailing()
         %s/\s\+$//ge
 endfunction
+
