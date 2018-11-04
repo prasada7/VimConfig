@@ -110,6 +110,9 @@ nnoremap <C-x> ebcw
 " Use jsx syntax for marko files
 autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
 
+" Make shift-tab as outdent
+inoremap <S-TAB> <C-d>
+
 " A funtion for installing Vundle
 function InstallVundle()
 	PluginInstall
