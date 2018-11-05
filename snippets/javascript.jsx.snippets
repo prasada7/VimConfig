@@ -19,16 +19,26 @@ snippet param
 
 snippet if
 	if (${1:condition}) {
-		${2:body}
+		${2:body}${0}
 	}
 
 snippet else
 	else {
-		${1:otherwise}
+		${1:otherwise}${0}
 	}
 
 snippet elif
 	else if (${1:condition}) {
-		${2:body}
+		${2:body}${0}
 	}
+
+snippet mcond
+	<${1:if}(${2:condition})>
+		${3:body}${0}
+	</$1>
+
+snippet melse
+	<else>
+		${1:body}${0}
+	</else>
 
