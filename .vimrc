@@ -113,6 +113,9 @@ autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
 " Make shift-tab as outdent
 inoremap <S-TAB> <C-d>
 
+" CTRL-A for select all
+nnoremap <C-a> ggvG
+
 " A funtion for installing Vundle
 function InstallVundle()
 	PluginInstall
