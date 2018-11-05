@@ -114,7 +114,7 @@ autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
 inoremap <S-TAB> <C-d>
 
 " CTRL-A for select all
-nnoremap <C-a> ggvG
+nnoremap <C-a> ggvG$
 
 " A funtion for installing Vundle
 function InstallVundle()
