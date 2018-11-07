@@ -40,6 +40,7 @@ set nowrap
 " Set tab to four spaces
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 set expandtab
 
 " Display the status line and change its color
@@ -61,9 +62,6 @@ hi LineNr ctermfg=244
 
 " Close brackets whenever a open bracket is placed
 inoremap {<CR> {<CR>}<UP><C-o>o<tab>
-
-" Allow the mouse to be used as a cursor
-" set mouse=a
 
 " Map Ctrl+x to cut in visual mode
 vmap <C-x> ygvx
@@ -127,6 +125,7 @@ let g:lightline = {
     \    'tabline': 0
     \}}
 hi TablineSel ctermbg=234
+set showtabline=2
 
 " A funtion for installing Vundle
 function InstallVundle()
