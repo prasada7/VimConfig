@@ -49,7 +49,6 @@ hi StatusLine ctermbg=244
 
 " Set the character count marker at 80
 hi ColorColumn ctermbg=235
-hi ColorColumn ctermfg=red
 let &colorcolumn="80".join(range(79,1000),",")
 
 " Set the non text region background to grey as well
@@ -105,7 +104,7 @@ map <M-RIGHT> <END>
 map <M-LEFT> <HOME>
 
 " Shortcut to replace the word the cursor is on
-nnoremap <C-x> ebcw
+nnoremap <C-x> ciw
 
 " Use jsx syntax for marko files
 autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
@@ -116,6 +115,10 @@ inoremap <S-TAB> <C-d>
 " CTRL-A for select all
 nnoremap <C-a> ggvG$
 
+" Use F3 to toggle mouse control
+command ToggleMouse execute "call ToggleMouse()"
+nnoremap <F3> :ToggleMouse<CR>
+
 " A funtion for installing Vundle
 function InstallVundle()
 	PluginInstall
@@ -124,6 +127,17 @@ endfunction
 
 " A function for removing trailing white spaces
 function Trailing()
-        %s/\s\+$//ge
+    %s/\s\+$//ge
 endfunction
 
+" A function for toggling mouse control
+function ToggleMouse()
+    " Check if mouse is set and toggle accordingly
+    if &mouse == 'a'
+        set mouse=
+        echo "mouse disabled"
+    else
+        set mouse=a
+        echo "mouse enabled"
+    endif
+endfunction
