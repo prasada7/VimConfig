@@ -42,3 +42,21 @@ snippet melse
 		${1:body}${0}
 	</else>
 
+snippet describe
+	describe('${1:description}', () => {
+		${2:testBody}${0}
+	});
+
+snippet it
+	it('${1:decription}', () => {
+		${2:testBody}${0}
+	});
+
+snippet be
+	beforeEach(() => {
+		${1:body}
+	});
+
+snippet expect
+	expect(${1:expected}).to${2:function}(${3}${0});
+
