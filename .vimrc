@@ -119,6 +119,15 @@ nnoremap <C-a> ggvG$
 command ToggleMouse execute "call ToggleMouse()"
 nnoremap <F3> :ToggleMouse<CR>
 
+" Customize the tabline and the status line
+let g:lightline = {
+    \ 'colorscheme': 'seoul256',
+    \ 'enable': {
+    \    'statusline': 1,
+    \    'tabline': 0
+    \}}
+hi TablineSel ctermbg=234
+
 " A funtion for installing Vundle
 function InstallVundle()
 	PluginInstall
