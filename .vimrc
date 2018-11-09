@@ -21,13 +21,16 @@ Plugin 'mxw/vim-jsx'
 Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Map the Nerd tree toggle to F4
+" Map the Nerd tree toggle to F4 and set igrnore options
 nnoremap <F4> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['node_modules']
 
 " Set the default color to desert and background color to grey
 silent! color gruvbox
@@ -149,3 +152,4 @@ function ToggleMouse()
         echo "mouse enabled"
     endif
 endfunction
+
