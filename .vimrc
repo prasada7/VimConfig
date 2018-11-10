@@ -137,6 +137,10 @@ nnoremap <C-a> ggvG$
 " Use F3 to toggle mouse control
 command ToggleMouse execute "call ToggleMouse()"
 nnoremap <F3> :ToggleMouse<CR>
+
+" Add maps to simplify global search
+nnoremap <C-F> :vim //j **/*<left><left><left><left><left><left><left>
+nnoremap <F6> :tabe \| cw<CR><C-w>10_
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""
