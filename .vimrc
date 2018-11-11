@@ -172,11 +172,11 @@ nnoremap <C-F> :vim //j **/*<left><left><left><left><left><left><left>
 nnoremap <F6> :tabe \| cw<CR><C-w>10_
 
 " Fugitive git shortcuts
-nnoremap <Leader>gs :GFiles?<CR><C-w>H
+nnoremap <Leader>gs :GFiles?<CR>
 nnoremap <Leader>gd :Gdiff<CR><C-w>H
 nnoremap <Leader>gb :Gblame<CR><C-w>H
 
-" Use <F7> to stop highlighting searchs but keep highlighting trailingnnoremap <FR7 :noh \| silent! /\s\+$<CR>
+" Use <F7> to stop highlighting searchs but keep highlighting trailing
 nnoremap <F7> :noh \| silent! /\s\+$<CR>
 
 """"""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""
