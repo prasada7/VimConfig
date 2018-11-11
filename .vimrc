@@ -27,6 +27,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-repeat'
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -110,6 +111,9 @@ set noshowmode
 
 " Set the backround to dark
 set background=dark
+
+" Customize fzf
+let g:fzf_layout = { 'left': '~50%' }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""Custom Mappings"""""""""""""""""""""""""""""""""
@@ -168,13 +172,12 @@ nnoremap <C-F> :vim //j **/*<left><left><left><left><left><left><left>
 nnoremap <F6> :tabe \| cw<CR><C-w>10_
 
 " Fugitive git shortcuts
-nnoremap <Leader>gs :Gstatus<CR><C-w>H
+nnoremap <Leader>gs :GFiles?<CR><C-w>H
 nnoremap <Leader>gd :Gdiff<CR><C-w>H
 nnoremap <Leader>gb :Gblame<CR><C-w>H
 
-" Use <F6> to stop highlighting searchs but keep highlighting trailing
-nnoremap <F6> :noh \| silent! /\s\+$<CR>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use <F7> to stop highlighting searchs but keep highlighting trailingnnoremap <FR7 :noh \| silent! /\s\+$<CR>
+nnoremap <F7> :noh \| silent! /\s\+$<CR>
 
 """"""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""
 " A funtion for installing Vundle

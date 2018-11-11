@@ -41,7 +41,7 @@ For example, Repeat's git repo is https://github.com/tpope/vim-repeat
 * Tabs changed to four spaces
 * Ctrl + F to do a global search in the current working directory and <F6> to
 bring up the QuickFix list in a new tab
-* F6 to stop highlighting but continue highlighting trailing white spaces
+* F7 to stop highlighting but continue highlighting trailing white spaces
 * Ctrl-P to open fuzzy finder using fzf. Visit
 [FuzzyFinder](https://github.com/junegunn/fzf) for more info
 * Alt Up/Down to move a line upwards or downwords (Normal mode)
