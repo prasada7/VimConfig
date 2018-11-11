@@ -10,7 +10,7 @@ set rtp+=~/.fzf
 
 """""""""""""""""""""""""""""""""Plugins for Vim"""""""""""""""""""""""""""""""
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'The-NERD-tree'
+Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mattn/emmet-vim'
@@ -39,6 +39,13 @@ set nowrap
 
 " Enable auto indentation
 set autoindent
+
+" Add starstart to the and enable wildmenu
+set path+=**
+set wildmenu
+
+" Show the command being typed while in normal mode
+set showcmd
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""Visual configurations""""""""""""""""""""""""""""""
@@ -79,13 +86,25 @@ hi clear CursorLine
 
 " Customize the tabline and the status line
 let g:lightline = {
+    \ 'active': {
+    \   'left': [ [ 'mode' ],
+    \             [ 'gitbranch', 'readonly', 'filenamebuf', 'modified' ] ]
+    \ },
     \ 'colorscheme': 'seoul256',
     \ 'enable': {
     \    'statusline': 1,
     \    'tabline': 0
-    \}}
+    \ },
+    \ 'component': {
+    \    'filenamebuf': '%f[%n]'
+    \ },
+    \ 'component_function': {
+    \    'gitbranch': 'fugitive#head'
+    \ }
+    \ }
 hi TablineSel ctermbg=234
 set showtabline=2
+set noshowmode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""Custom Mappings"""""""""""""""""""""""""""""""""
@@ -93,6 +112,7 @@ set showtabline=2
 nnoremap <F4> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['node_modules']
 let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
 
 " Close brackets whenever a open bracket is placed
 inoremap {<CR> {<CR>}<UP><C-o>o<tab>
