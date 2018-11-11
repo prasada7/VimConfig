@@ -26,6 +26,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'ap/vim-css-color'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-repeat'
+Plugin 'junegunn/fzf'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -22,6 +22,7 @@ ectory, creates a sym link to the .vimrc present in this repository from the
 12. Css color [ap/vim-css-color]
 13. Supertab [ervandew/supertab]
 14. Repeat [tpope/vim-repeat]
+15. FZF [junegunn/fzf]
 > Use the text within the brackets to go to the plugins respective git repo<br>
 For example, Repeat's git repo is https://github.com/tpope/vim-repeat
 
@@ -41,8 +42,8 @@ For example, Repeat's git repo is https://github.com/tpope/vim-repeat
 * Ctrl + F to do a global search in the current working directory and <F6> to
 bring up the QuickFix list in a new tab
 * F6 to stop highlighting but continue highlighting trailing white spaces
-* Ctrl-P to open fuzzy finder using fzf (if installed) visit
-[FuzzyFinder](https://github.com/junegunn/fzf) for instructions
+* Ctrl-P to open fuzzy finder using fzf. Visit
+[FuzzyFinder](https://github.com/junegunn/fzf) for more info
 * Alt Up/Down to move a line upwards or downwords (Normal mode)
 * Alt Left/Right to move cursor to the beginning or end of the line (Normal
 mode)
