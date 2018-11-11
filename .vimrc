@@ -56,6 +56,7 @@ set showcmd
 """"""""""""""""""""""""""""Visual configurations""""""""""""""""""""""""""""""
 " Set the default color to desert and background color to grey
 silent! color gruvbox
+set background=dark
 hi Normal ctermbg=234
 
 " Remove the introductory message
@@ -73,7 +74,6 @@ let &colorcolumn="80".join(range(79,1000),",")
 " Highlight all trailing white spaces
 set hlsearch
 silent! /\s\+$
-hi Search ctermbg=235
 
 " Set the non text region background to grey as well
 hi NonText ctermbg=235
@@ -108,9 +108,6 @@ let g:lightline = {
 hi TablineSel ctermbg=234
 set showtabline=2
 set noshowmode
-
-" Set the backround to dark
-set background=dark
 
 " Customize fzf
 let g:fzf_layout = { 'left': '~50%' }
