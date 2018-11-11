@@ -25,6 +25,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ap/vim-css-color'
 Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-repeat'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,7 +54,6 @@ set showcmd
 """"""""""""""""""""""""""""Visual configurations""""""""""""""""""""""""""""""
 " Set the default color to desert and background color to grey
 silent! color gruvbox
-set background=dark
 hi Normal ctermbg=234
 
 " Remove the introductory message
@@ -106,6 +106,9 @@ let g:lightline = {
 hi TablineSel ctermbg=234
 set showtabline=2
 set noshowmode
+
+" Set the backround to dark
+set background=dark
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""Custom Mappings"""""""""""""""""""""""""""""""""
@@ -167,6 +170,9 @@ nnoremap <F6> :tabe \| cw<CR><C-w>10_
 nnoremap <Leader>gs :Gstatus<CR><C-w>H
 nnoremap <Leader>gd :Gdiff<CR><C-w>H
 nnoremap <Leader>gb :Gblame<CR><C-w>H
+
+" Use <F6> to stop highlighting searchs but keep highlighting trailing
+nnoremap <F6> :noh \| silent! /\s\+$<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""
