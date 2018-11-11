@@ -63,4 +63,7 @@ fi
 
 # Install all the plugins specified in the conf
 vim +PluginInstall +qall
+#------------------------------------------------------------------------------
+echo Installation Complete
+#------------------------------------------------------------------------------
 
