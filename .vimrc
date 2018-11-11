@@ -23,6 +23,8 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
+Plugin 'ap/vim-css-color'
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -90,7 +92,6 @@ let g:lightline = {
     \   'left': [ [ 'mode' ],
     \             [ 'gitbranch', 'readonly', 'filenamebuf', 'modified' ] ]
     \ },
-    \ 'colorscheme': 'seoul256',
     \ 'enable': {
     \    'statusline': 1,
     \    'tabline': 0
