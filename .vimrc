@@ -185,6 +185,8 @@ nnoremap <Leader>lb :Buffers<CR>
 " Map to list history of files
 nnoremap <Leader>lh :History<CR>
 
+" Change the trigger key for Emmet to E instead of Y
+let g:user_emmet_leader_key="<C-e>"
 """"""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""
 " A funtion for installing Vundle
 function InstallVundle()
