@@ -9,6 +9,12 @@ then
     mkdir "$bundle"
 fi
 
+# Create a swaps directory if it already does not exist
+if [ ! -d ~/.vim/.swaps/ ]
+then
+    mkdir ~/.vim/.swaps/
+fi
+
 #------------------------------------------------------------------------------
 echo Cloning the Vundle bundle from github to the bundle directory...
 #------------------------------------------------------------------------------

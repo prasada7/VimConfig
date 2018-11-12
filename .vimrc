@@ -51,6 +51,9 @@ set wildmenu
 
 " Show the command being typed while in normal mode
 set showcmd
+
+" Move swap files to a directory in .vim
+set directory=~/.vim/.swaps//
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""Visual configurations""""""""""""""""""""""""""""""
