@@ -176,6 +176,12 @@ nnoremap <Leader>gb :Gblame<CR><C-w>H
 " Use <F7> to stop highlighting searchs but keep highlighting trailing
 nnoremap <F7> :noh \| silent! /\s\+$<CR>
 
+" Map to list all buffers
+nnoremap <Leader>lb :Buffers<CR>
+
+" Map to list history of files
+nnoremap <Leader>lh :History<CR>
+
 """"""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""
 " A funtion for installing Vundle
 function InstallVundle()
