@@ -28,6 +28,7 @@ Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-repeat'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-jdaddy'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -187,6 +188,9 @@ nnoremap <Leader>lh :History<CR>
 
 " Change the trigger key for Emmet to E instead of Y
 let g:user_emmet_leader_key="<C-e>"
+
+" Map to pretty print JSON files
+nmap <Leader>pp gqaj
 """"""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""
 " A funtion for installing Vundle
 function InstallVundle()
