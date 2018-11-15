@@ -197,6 +197,15 @@ nnoremap <Leader>tb :tab ball<CR><CR>
 
 " Map to close file and delete buffer
 nnoremap <Leader>cf :bw<CR>
+
+" Map to refresh git gutter
+nnoremap <Leader>gg :GitGutter<CR>
+
+" Map to create a new tab
+nnoremap <Leader>nt :tabe<CR>
+
+" Map to locate the current file in NERDTree
+nmap <Leader>ff :NERDTreeFind<CR>
 """"""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""
 " A funtion for installing Vundle
 function InstallVundle()
