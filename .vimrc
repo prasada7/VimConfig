@@ -1,3 +1,4 @@
+" Vundle and Plugins {{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -8,7 +9,6 @@ call vundle#begin()
 " Include fuzzy finder
 set rtp+=~/.fzf
 
-"""""""""""""""""""""""""""""""""Plugins for Vim"""""""""""""""""""""""""""""""
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
@@ -33,9 +33,8 @@ Plugin 'tpope/vim-jdaddy'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""Functionality""""""""""""""""""""""""""""""""""
+" }}}
+" Functionality {{{
 " Set tab to four spaces
 set tabstop=4
 set shiftwidth=4
@@ -55,9 +54,11 @@ set showcmd
 
 " Move swap files to a directory in .vim
 set directory=~/.vim/.swaps//
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""Visual configurations""""""""""""""""""""""""""""""
+" Set folding method for vim files
+autocmd FileType vim setlocal foldmethod=marker
+" }}}
+" Visual configurations {{{
 " Set the default color to desert and background color to grey
 silent! color gruvbox
 set background=dark
@@ -115,14 +116,16 @@ set noshowmode
 
 " Customize fzf
 let g:fzf_layout = { 'left': '~50%' }
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""Custom Mappings"""""""""""""""""""""""""""""""""
+" }}}
+" Custom Mappings {{{
 " Map the Nerd tree toggle to F4, set igrnore options, and show hidden files
 nnoremap <F4> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['node_modules']
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
+
+" Map to list all custom mappings
+nnoremap <Leader>cm :Maps<CR> ~/.vimrc
 
 " Close brackets whenever a open bracket is placed
 inoremap {<CR> {<CR>}<UP><C-o>o<tab>
@@ -209,7 +212,8 @@ nmap <Leader>ff :NERDTreeFind<CR>
 
 " Map to open the vimrc conf file
 nmap <Leader>vc :tabe ~/.vimrc<CR>
-""""""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""
+" }}}
+" Functions {{{
 " A funtion for installing Vundle
 function InstallVundle()
 	PluginInstall
@@ -232,4 +236,4 @@ function ToggleMouse()
         echo "mouse enabled"
     endif
 endfunction
-
+" }}}
