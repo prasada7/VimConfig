@@ -191,6 +191,12 @@ let g:user_emmet_leader_key="<C-e>"
 
 " Map to pretty print JSON files
 nmap <Leader>pp gqaj
+
+" Map to place all buffers into tabs
+nnoremap <Leader>tb :tab ball<CR><CR>
+
+" Map to close file and delete buffer
+nnoremap <Leader>cf :bw<CR>
 """"""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""
 " A funtion for installing Vundle
 function InstallVundle()
