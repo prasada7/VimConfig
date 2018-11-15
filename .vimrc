@@ -206,6 +206,9 @@ nnoremap <Leader>nt :tabe<CR>
 
 " Map to locate the current file in NERDTree
 nmap <Leader>ff :NERDTreeFind<CR>
+
+" Map to open the vimrc conf file
+nmap <Leader>vc :tabe ~/.vimrc<CR>
 """"""""""""""""""""""""""""""""Functions""""""""""""""""""""""""""""""""""""""
 " A funtion for installing Vundle
 function InstallVundle()
