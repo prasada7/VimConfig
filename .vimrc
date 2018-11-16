@@ -133,9 +133,6 @@ inoremap {<CR> {<CR>}<UP><C-o>o<tab>
 " Map Ctrl+x to cut in visual mode
 vmap <C-x> ygvx
 
-" Map Ctrl+v to paster in insert mode
-imap <C-v> <C-o>p
-
 " Create a command for removing white spaces and map it to F2
 command Trailing execute "call Trailing()"
 nnoremap <F2> :Trailing<CR>
@@ -212,6 +209,12 @@ nmap <Leader>ff :NERDTreeFind<CR>
 
 " Map to open the vimrc conf file
 nmap <Leader>vc :tabe ~/.vimrc<CR>
+
+" Maps to copy and paste to clipboard
+vnoremap y "+y
+nnoremap p <ESC>"+p
+nnoremap P <ESC>"+P
+
 " }}}
 " Functions {{{
 " A funtion for installing Vundle
