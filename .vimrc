@@ -127,6 +127,7 @@ let g:lightline = {
 hi TablineSel ctermbg=234
 set showtabline=2
 set noshowmode
+set tabline=%!GetLabel()
 
 " Customize fzf
 let g:fzf_layout = { 'left': '~50%' }
@@ -224,6 +225,17 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 
+" Maps to jump to particular tab
+nnoremap <Leader>1 1gt
+nnoremap <Leader>2 2gt
+nnoremap <Leader>3 3gt
+nnoremap <Leader>4 4gt
+nnoremap <Leader>5 5gt
+nnoremap <Leader>6 6gt
+nnoremap <Leader>7 7gt
+nnoremap <Leader>8 8gt
+nnoremap <Leader>9 9gt
+
 " }}}
 
 " INSERT MODE {{{
@@ -262,6 +274,36 @@ function ToggleMouse()
         set mouse=a
         echo "mouse enabled"
     endif
+endfunction
+
+" Function to create the label for the tabline
+function GetLabel()
+    let s = ''
+    let index = 1
+    let currentTab = tabpagenr()
+    " Loop through all the pages
+    while index <= tabpagenr('$')
+        let buflist = tabpagebuflist(index)
+        let winnr = tabpagewinnr(index)
+        let bufname = bufname(buflist[winnr -1])
+
+        " Indicate the tab number and determine whether this tab is selected
+        let s .= '%' . index . 'T'
+        let s .= (index == currentTab ? '%#TabLineSel#' : '%#TabLine#')
+
+        " Add the file name along with the tab number
+        let s .= ' ' . index . '| ' . bufname
+
+        " Add the modifed symbol if the buffer has been modified
+        let s .= (getbufvar(index, '&mod') == 1 ? '+ ' : ' ')
+
+        let index += 1
+    endwhile
+
+    " Append the tabfill start indication
+    let s .= '%T%#TabLineFill#%='
+    let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+    return s
 endfunction
 
 " }}}
