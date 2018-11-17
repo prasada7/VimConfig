@@ -236,6 +236,9 @@ nnoremap <Leader>7 7gt
 nnoremap <Leader>8 8gt
 nnoremap <Leader>9 9gt
 
+" Map to search and replace
+nnoremap <C-h> :%s///g<left><left><left>
+
 " }}}
 
 " INSERT MODE {{{
