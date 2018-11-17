@@ -102,12 +102,10 @@ set nu
 hi LineNr ctermbg=235
 hi LineNr ctermfg=244
 
-" Highlight cursor line (highlights on insert mode)
-autocmd InsertEnter * set cursorline
-autocmd InsertLeave * set nocursorline
+" Set a clear cursor line
 hi clear CursorLine
 
-" Customize the tabline and the status line
+" Customize the status line
 let g:lightline = {
     \ 'active': {
     \   'left': [ [ 'mode' ],
@@ -127,6 +125,8 @@ let g:lightline = {
 hi TablineSel ctermbg=234
 set showtabline=2
 set noshowmode
+
+" Customize the tabline
 set tabline=%!GetLabel()
 
 " Customize fzf
@@ -292,7 +292,7 @@ function GetLabel()
         let s .= (index == currentTab ? '%#TabLineSel#' : '%#TabLine#')
 
         " Add the file name along with the tab number
-        let s .= ' ' . index . '| ' . bufname
+        let s .= ' ' . index . '| ' . (bufname != ''? bufname : 'New File' )
 
         " Add the modifed symbol if the buffer has been modified
         let s .= (getbufvar(index, '&mod') == 1 ? '+ ' : ' ')
