@@ -1,4 +1,5 @@
 " Vundle and Plugins {{{
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -33,8 +34,12 @@ Plugin 'tpope/vim-jdaddy'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
 " }}}
+
+
 " Functionality {{{
+
 " Set tab to four spaces
 set tabstop=4
 set shiftwidth=4
@@ -57,7 +62,16 @@ set directory=~/.vim/.swaps//
 
 " Set folding method for vim files
 autocmd FileType vim setlocal foldmethod=marker
+
+" Change the trigger key for Emmet to E instead of Y
+let g:user_emmet_leader_key="<C-e>"
+
+" Use jsx syntax for marko files
+autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
+
 " }}}
+
+
 " Visual configurations {{{
 " Set the default color to desert and background color to grey
 silent! color gruvbox
@@ -116,22 +130,26 @@ set noshowmode
 
 " Customize fzf
 let g:fzf_layout = { 'left': '~50%' }
-" }}}
-" Custom Mappings {{{
-" Map the Nerd tree toggle to F4, set igrnore options, and show hidden files
-nnoremap <F4> :NERDTreeToggle<CR>
+
+" Enable relative number
+set rnu
+
+" NERDTree conf
 let NERDTreeIgnore = ['node_modules']
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 
+" }}}
+
+
+" Custom Mappings {{{
+" NORMAL MODE {{{
+
+" Map the Nerd tree toggle to F4
+nnoremap <F4> :NERDTreeToggle<CR>
+
 " Map to list all custom mappings
 nnoremap <Leader>cm :Maps<CR> ~/.vimrc
-
-" Close brackets whenever a open bracket is placed
-inoremap {<CR> {<CR>}<UP><C-o>o<tab>
-
-" Map Ctrl+x to cut in visual mode
-vmap <C-x> ygvx
 
 " Create a command for removing white spaces and map it to F2
 command Trailing execute "call Trailing()"
@@ -154,12 +172,6 @@ map <M-LEFT> <HOME>
 
 " Shortcut to replace the word the cursor is on
 nnoremap <C-x> ciw
-
-" Use jsx syntax for marko files
-autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
-
-" Make shift-tab as outdent
-inoremap <S-TAB> <C-d>
 
 " CTRL-A for select all
 nnoremap <C-a> ggvG$
@@ -186,9 +198,6 @@ nnoremap <Leader>lb :Buffers<CR>
 " Map to list history of files
 nnoremap <Leader>lh :History<CR>
 
-" Change the trigger key for Emmet to E instead of Y
-let g:user_emmet_leader_key="<C-e>"
-
 " Map to pretty print JSON files
 nmap <Leader>pp gqaj
 
@@ -211,17 +220,32 @@ nmap <Leader>ff :NERDTreeFind<CR>
 nmap <Leader>vc :tabe ~/.vimrc<CR>
 
 " Maps to copy and paste to clipboard
-vnoremap y "+y
-nnoremap p <ESC>"+p
-nnoremap P <ESC>"+P
+vnoremap <Leader>y "+y
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
 
 " }}}
+
+" INSERT MODE {{{
+
+" Close brackets whenever a open bracket is placed
+inoremap {<CR> {<CR>}<UP><C-o>o<tab>
+
+" Make shift-tab as outdent
+inoremap <S-TAB> <C-d>
+
+" }}}
+
+" VISUAL MODE {{{
+
+" Map Ctrl+x to cut in visual mode
+vmap <C-x> ygvx
+
+" }}}
+" }}}
+
+
 " Functions {{{
-" A funtion for installing Vundle
-function InstallVundle()
-	PluginInstall
-	qa
-endfunction
 
 " A function for removing trailing white spaces
 function Trailing()
@@ -239,4 +263,6 @@ function ToggleMouse()
         echo "mouse enabled"
     endif
 endfunction
+
 " }}}
+
