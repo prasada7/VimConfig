@@ -189,6 +189,10 @@ nnoremap <F6> :tabe \| cw<CR><C-w>10_
 nnoremap <Leader>gs :GFiles?<CR>
 nnoremap <Leader>gd :Gdiff<CR><C-w>H
 nnoremap <Leader>gb :Gblame<CR><C-w>H
+nnoremap <Leader>gg :GitGutter<CR>
+nnoremap <Leader>gr :Gread<CR>
+nnoremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gc :Gcommit<CR>
 
 " Use <F7> to stop highlighting searchs but keep highlighting trailing
 nnoremap <F7> :noh \| silent! /\s\+$<CR>
@@ -207,9 +211,6 @@ nnoremap <Leader>tb :tab ball<CR><CR>
 
 " Map to close file and delete buffer
 nnoremap <Leader>cf :bw<CR>
-
-" Map to refresh git gutter
-nnoremap <Leader>gg :GitGutter<CR>
 
 " Map to create a new tab
 nnoremap <Leader>nt :tabe<CR>
