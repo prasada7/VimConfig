@@ -67,6 +67,17 @@ autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
 " Map ZZ to lower case to prevent unintentional save and quit
 nnoremap ZZ zz
 
+" Change the way vim splits windows
+set splitbelow
+set splitright
+
+" Disable ex mode
+nmap Q <nop>
+
+" Ignore cases when patern searching
+set ignorecase
+set smartcase
+
 " }}}
 
 
@@ -157,7 +168,7 @@ nnoremap <F2> :Trailing<CR>
 nnoremap <F5> :w<CR>
 
 " Map q to quit window
-nnoremap q :q<CR>
+nnoremap <Leader>q :q<CR>
 
 " Map CTRL + P For fuzzy finder
 nnoremap <C-p> :FZF<CR>
@@ -242,6 +253,21 @@ nnoremap <C-h> :%s///g<left><left><left>
 " Map to move the view up and down
 nnoremap <Leader>u <C-y>
 nnoremap <Leader>d <C-e>
+
+" Use shift up/down to duplicate current line
+nmap <S-down> Yp
+nmap <S-up> YP
+
+" Toggle to show special characters
+nnoremap <Leader>i :set list!<CR>
+
+" Maps to switch to filetypes
+nmap _vim :set ft=vim<CR>
+nmap _js :set ft=javascript.jsx<CR>
+nmap _pl :set ft=perl<CR>
+nmap _java :set ft=java<CR>
+nmap _sh :set ft=sh<CR>
+nmap _html :set ft=html<CR>
 
 " }}}
 
