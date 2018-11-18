@@ -41,18 +41,13 @@ filetype plugin indent on    " required
 " Functionality {{{
 
 " Set tab to four spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set nowrap
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab nowrap
 
 " Enable auto indentation
 set autoindent
 
 " Add starstart to the and enable wildmenu
-set path+=**
-set wildmenu
+set path+=** wildmenu
 
 " Show the command being typed while in normal mode
 set showcmd
@@ -69,6 +64,9 @@ let g:user_emmet_leader_key="<C-e>"
 " Use jsx syntax for marko files
 autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
 
+" Map ZZ to lower case to prevent unintentional save and quit
+nnoremap ZZ zz
+
 " }}}
 
 
@@ -84,7 +82,7 @@ set shortmess=I
 " Display the status line and change its color
 set laststatus=2
 hi StatusLine ctermfg=235
-hi StatusLine ctermbg=244
+hi n ctermbg=244
 
 " Set the character count marker at 80
 hi ColorColumn ctermbg=235
@@ -123,8 +121,7 @@ let g:lightline = {
     \ }
     \ }
 hi TablineSel ctermbg=234
-set showtabline=2
-set noshowmode
+set showtabline=2 noshowmode
 
 " Customize the tabline
 set tabline=%!GetLabel()
@@ -170,6 +167,8 @@ nnoremap <M-UP> ddkkp
 nnoremap <M-DOWN> ddp
 map <M-RIGHT> <END>
 map <M-LEFT> <HOME>
+nnoremap <Leader>b ^
+nnoremap <Leader>e $
 
 " Shortcut to replace the word the cursor is on
 nnoremap <C-x> ciw
@@ -239,6 +238,10 @@ nnoremap <Leader>9 9gt
 
 " Map to search and replace
 nnoremap <C-h> :%s///g<left><left><left>
+
+" Map to move the view up and down
+nnoremap <Leader>u <C-y>
+nnoremap <Leader>d <C-e>
 
 " }}}
 
