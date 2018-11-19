@@ -30,6 +30,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-jdaddy'
+Plugin 'junegunn/seoul256.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -82,37 +83,30 @@ set smartcase
 
 
 " Visual configurations {{{
-" Set the default color to desert and background color to grey
-silent! color gruvbox
+" Set the color scheme to seoul256
+let g:seoul256_background = 233
 set background=dark
-hi Normal ctermbg=234
+silent! color seoul256
+
+" Set the character count marker at 80
+hi ColorColumn ctermbg=234
+let &colorcolumn="80"
+
+" Enable line count
+set nu
+
+" Set a clear cursor line
+hi clear CursorLine
+
+" Display the status line
+set laststatus=2
 
 " Remove the introductory message
 set shortmess=I
 
-" Display the status line and change its color
-set laststatus=2
-hi StatusLine ctermfg=235
-hi n ctermbg=244
-
-" Set the character count marker at 80
-hi ColorColumn ctermbg=235
-let &colorcolumn="80".join(range(79,1000),",")
-
 " Highlight all trailing white spaces
 set hlsearch
 silent! /\s\+$
-
-" Set the non text region background to grey as well
-hi NonText ctermbg=235
-
-" Enable and configure line count
-set nu
-hi LineNr ctermbg=235
-hi LineNr ctermfg=244
-
-" Set a clear cursor line
-hi clear CursorLine
 
 " Customize the status line
 let g:lightline = {
@@ -131,7 +125,7 @@ let g:lightline = {
     \    'gitbranch': 'fugitive#head'
     \ }
     \ }
-hi TablineSel ctermbg=234
+hi TablineSel ctermbg=233
 set showtabline=2 noshowmode
 
 " Customize the tabline
