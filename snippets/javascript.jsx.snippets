@@ -1,5 +1,5 @@
 snippet conlog
-	console.log(${1:Something to log});
+	console.log(${1:Something to log}${0});
 
 snippet /**
 	/**
@@ -11,7 +11,7 @@ snippet import
 
 snippet comp
 	<${1:component} class="${2:class}"${3}>
-		${4}
+		${4}${0}
 	<$1>
 
 snippet param
@@ -66,3 +66,16 @@ snippet grreq
 snippet grbs
 	buildSchema(\`${0}\`);
 
+snippet constructor
+	constructor(${1:field1}, ${2:field2}) {
+		this.$1 = $1;
+		this.$2 = $2;
+	}
+
+snippet function
+	/**
+	 * ${1:Description}
+	 */
+	${2:funcName}(${3}) {
+		${0}
+	}
