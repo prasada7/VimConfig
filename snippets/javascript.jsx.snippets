@@ -60,12 +60,6 @@ snippet be
 snippet expect
 	expect(${1:expected}).to${2:function}(${3}${0});
 
-snippet grreq
-	var { graphql, ${1}${0}} = require('graphql');
-
-snippet grbs
-	buildSchema(\`${0}\`);
-
 snippet constructor
 	constructor(${1:field1}, ${2:field2}) {
 		this.$1 = $1;
@@ -79,3 +73,38 @@ snippet function
 	${2:funcName}(${3}) {
 		${0}
 	}
+
+# Graphql snippets
+snippet grreq
+	var { buildSchema, GraphQLSchema, printSchema, GraphQLObjectType,
+	      GraphQLString, GraphQLID, GraphQLInt, GraphQLList } = require('graphql');
+
+snippet grbs
+	var ${1:schemaName} = buildSchema(\`
+		${0}
+	\`);
+
+snippet grobj
+	var ${1:Query} = new GraphQLObjectType({
+		name: '${2:Name}',
+		fields: {
+			${0}
+		}
+	});
+
+snippet grarg
+	${1:arg}: {type: ${0:type}}
+
+snippet grresolve
+	resolve: (_, {${1:roots}}) => {
+		${0}
+	}
+
+snippet grschema
+	var ${1:schema} = new GraphQLSchema({
+		query: ${2:graphQLObjType},
+	});
+
+snippet grtype
+	GraphQL${1:String}
+
