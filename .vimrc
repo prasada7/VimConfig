@@ -333,5 +333,11 @@ function GetLabel()
     return s
 endfunction
 
+" Function to list all snippets for the current filetype in the buffer
+function ListSnippets()
+    let listOfSnippets = system("echo ':q! to quit' && cat snippets/" . &filetype. ".snippets 2>/dev/null")
+    vnew | setlocal ft=snippets | put=listOfSnippets
+endfunction
+
 " }}}
 
