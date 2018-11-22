@@ -1,6 +1,6 @@
 # Basics
 snippet conlog
-	console.log(${1:Something to log}${0});
+	console.log(${0:Something to log});
 
 snippet import
 	import {${1:identities}} from "${2:location}";
@@ -22,67 +22,71 @@ snippet function
 # Docs
 snippet /**
 	/**
-	 * ${1:Description of the function}
+	 * ${0:Description of the function}
 	 */
 
 snippet param
-	@param {${1:Type}} ${2:Name} ${3:Description}
+	@param {${1:Type}} ${2:Name} ${0:Description}
 
 snippet author
-	@author ${1:Name}
+	@author ${0:Name}
 
 snippet created
 	@created `system("date +%Y-%m-%d")`
+
+snippet returns
+	@returns {${1:type}} ${0:description}
+
 # Conditionals
 snippet if
 	if (${1:condition}) {
-		${2:body}${0}
+		${0:body}
 	}
 
 snippet else
 	else {
-		${1:otherwise}${0}
+		${0:otherwise}
 	}
 
 snippet elif
 	else if (${1:condition}) {
-		${2:body}${0}
+		${0:body}
 	}
 
 # MarkoJS
 snippet comp
 	<${1:component} class="${2:class}"${3}>
-		${4}${0}
+		${0}
 	<$1>
 
 snippet mcond
 	<${1:if}(${2:condition})>
-		${3:body}${0}
+		${0:body}
 	</$1>
 
 snippet melse
 	<else>
-		${1:body}${0}
+		${0:body}
 	</else>
 
 # Jest
 snippet describe
 	describe('${1:description}', () => {
-		${2:testBody}${0}
+		${0:testBody}
 	});
 
 snippet it
 	it('${1:decription}', () => {
-		${2:testBody}${0}
+		${0:testBody}
 	});
 
 snippet be
 	beforeEach(() => {
-		${1:body}
+		${0:body}
 	});
 
 snippet expect
-	expect(${1:expected}).to${2:function}(${3}${0});
+	expect(${1:expected}).to${2:function}(${0});
 
 
 # Graphql snippets
@@ -113,9 +117,9 @@ snippet grresolve
 
 snippet grschema
 	var ${1:schema} = new GraphQLSchema({
-		query: ${2:graphQLObjType},
+		query: ${0:graphQLObjType},
 	});
 
 snippet grtype
-	GraphQL${1:String}
+	GraphQL${0:String}
 
