@@ -1,22 +1,39 @@
+# Basics
 snippet conlog
 	console.log(${1:Something to log}${0});
 
+snippet import
+	import {${1:identities}} from "${2:location}";
+
+snippet constructor
+	constructor(${1:field1}, ${2:field2}) {
+		this.$1 = $1;
+		this.$2 = $2;
+	}
+
+snippet function
+	/**
+	 * ${1:Description}
+	 */
+	${2:funcName}(${3}) {
+		${0}
+	}
+
+# Docs
 snippet /**
 	/**
 	 * ${1:Description of the function}
 	 */
 
-snippet import
-	import {${1:identities}} from "${2:location}";
-
-snippet comp
-	<${1:component} class="${2:class}"${3}>
-		${4}${0}
-	<$1>
-
 snippet param
 	@param {${1:Type}} ${2:Name} ${3:Description}
 
+snippet author
+	@author ${1:Name}
+
+snippet created
+	@created `system("date +%Y-%m-%d")`
+# Conditionals
 snippet if
 	if (${1:condition}) {
 		${2:body}${0}
@@ -32,6 +49,12 @@ snippet elif
 		${2:body}${0}
 	}
 
+# MarkoJS
+snippet comp
+	<${1:component} class="${2:class}"${3}>
+		${4}${0}
+	<$1>
+
 snippet mcond
 	<${1:if}(${2:condition})>
 		${3:body}${0}
@@ -42,6 +65,7 @@ snippet melse
 		${1:body}${0}
 	</else>
 
+# Jest
 snippet describe
 	describe('${1:description}', () => {
 		${2:testBody}${0}
@@ -60,19 +84,6 @@ snippet be
 snippet expect
 	expect(${1:expected}).to${2:function}(${3}${0});
 
-snippet constructor
-	constructor(${1:field1}, ${2:field2}) {
-		this.$1 = $1;
-		this.$2 = $2;
-	}
-
-snippet function
-	/**
-	 * ${1:Description}
-	 */
-	${2:funcName}(${3}) {
-		${0}
-	}
 
 # Graphql snippets
 snippet grreq
