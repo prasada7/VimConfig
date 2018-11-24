@@ -33,6 +33,8 @@ Plugin 'tpope/vim-jdaddy'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'valloric/matchtagalways'
+Plugin 'scrooloose/nerdcommenter'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -186,6 +188,7 @@ nnoremap <Leader>e $
 
 " Shortcut to replace the word the cursor is on
 nnoremap <C-x> ciw
+nnoremap <C-d> viw
 
 " CTRL-A for select all
 nnoremap <C-a> ggvG$
@@ -256,8 +259,8 @@ nnoremap <Leader>9 9gt
 nnoremap <C-h> :%s///g<left><left><left>
 
 " Map to move the view up and down
-nnoremap <Leader>u <C-y>
-nnoremap <Leader>d <C-e>
+nnoremap <Leader>k 5<C-y>
+nnoremap <Leader>j 5<C-e>
 
 " Use shift up/down to duplicate current line
 nmap <S-down> Yp
