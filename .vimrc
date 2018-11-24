@@ -154,6 +154,9 @@ let g:indentLine_fileTypeExclude = ['json']
 " Custom Mappings {{{
 " NORMAL MODE {{{
 
+" Map the leader to the comman
+let mapleader = ","
+
 " Map the Nerd tree toggle to F4
 nnoremap <F4> :NERDTreeToggle<CR>
 
@@ -161,7 +164,7 @@ nnoremap <F4> :NERDTreeToggle<CR>
 nnoremap <Leader>cm :Maps<CR> ~/.vimrc
 
 " Create a command for removing white spaces and map it to F2
-command Trailing execute "call Trailing()"
+command! Trailing execute "call Trailing()"
 nnoremap <F2> :Trailing<CR>
 
 " Map F5 to save the file
@@ -188,7 +191,7 @@ nnoremap <C-x> ciw
 nnoremap <C-a> ggvG$
 
 " Use F3 to toggle mouse control
-command ToggleMouse execute "call ToggleMouse()"
+command! ToggleMouse execute "call ToggleMouse()"
 nnoremap <F3> :ToggleMouse<CR>
 
 " Add maps to simplify global search
@@ -229,8 +232,9 @@ nnoremap <Leader>nt :tabe<CR>
 " Map to locate the current file in NERDTree
 nmap <Leader>ff :NERDTreeFind<CR>
 
-" Map to open the vimrc conf file
-nmap <Leader>vc :tabe ~/.vimrc<CR>
+" Map to open and source the vimrc file
+nmap <Leader>vc :tabe $MYVIMRC<CR>
+nmap <Leader>sc :source $MYVIMRC<CR>
 
 " Maps to copy and paste to clipboard
 vnoremap <Leader>y "+y
@@ -270,6 +274,16 @@ nmap _java :set ft=java<CR>
 nmap _sh :set ft=sh<CR>
 nmap _html :set ft=html<CR>
 
+" Maps to disable the arrow keys
+map <LEFT> <nop>
+map <UP> <nop>
+map <RIGHT> <nop>
+map <DOWN> <nop>
+imap <LEFT> <nop>
+imap <UP> <nop>
+imap <RIGHT> <nop>
+imap <DOWN> <nop>
+
 " }}}
 
 " INSERT MODE {{{
@@ -294,12 +308,12 @@ vmap <C-x> ygvx
 " Functions {{{
 
 " A function for removing trailing white spaces
-function Trailing()
+function! Trailing()
     %s/\s\+$//ge
 endfunction
 
 " A function for toggling mouse control
-function ToggleMouse()
+function! ToggleMouse()
     " Check if mouse is set and toggle accordingly
     if &mouse == 'a'
         set mouse=
@@ -311,7 +325,7 @@ function ToggleMouse()
 endfunction
 
 " Function to create the label for the tabline
-function GetLabel()
+function! GetLabel()
     let s = ''
     let index = 1
     let currentTab = tabpagenr()
@@ -341,7 +355,7 @@ function GetLabel()
 endfunction
 
 " Function to list all snippets for the current filetype in the buffer
-function ListSnippets()
+function! ListSnippets()
     let listOfSnippets = system("echo ':q! to quit' && cat snippets/" . &filetype. ".snippets 2>/dev/null")
     vnew | setlocal ft=snippets | put=listOfSnippets
 endfunction
