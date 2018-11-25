@@ -167,13 +167,14 @@ nnoremap <Leader>cm :Maps<CR> ~/.vimrc
 
 " Create a command for removing white spaces and map it to F2
 command! Trailing execute "call Trailing()"
-nnoremap <F2> :Trailing<CR>
+nnoremap <F2> mt:Trailing<CR>`t
 
 " Map F5 to save the file
 nnoremap <F5> :w<CR>
 
-" Map q to quit window
+" Map q to quit window and w to write to the file
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>w :w<CR>
 
 " Map CTRL + P For fuzzy finder
 nnoremap <C-p> :FZF<CR>
@@ -212,7 +213,7 @@ nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gf :GFiles<CR>
 
 " Use <F7> to stop highlighting searchs but keep highlighting trailing
-nnoremap <F7> :noh \| silent! /\s\+$<CR>
+nnoremap <F7> mt:noh \| silent! /\s\+$<CR>`t
 
 " Map to list all buffers
 nnoremap <Leader>lb :Buffers<CR>
