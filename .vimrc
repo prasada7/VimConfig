@@ -306,6 +306,13 @@ inoremap <S-TAB> <C-d>
 vmap <C-x> ygvx
 
 " }}}
+
+" COMMAND MODE {{{
+
+" Map to set W to save the file instead
+cmap W<CR> <ESC><Leader>w
+
+" }}}
 " }}}
 
 
