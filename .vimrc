@@ -237,7 +237,7 @@ nnoremap <Leader>nt :tabe<CR>
 nmap <Leader>ff :NERDTreeFind<CR>
 
 " Map to open and source the vimrc file
-nmap <Leader>vc :tabe $MYVIMRC<CR>
+nmap <Leader>vc :e $MYVIMRC<CR>
 nmap <Leader>sc :source $MYVIMRC<CR>
 
 " Maps to copy and paste to clipboard
