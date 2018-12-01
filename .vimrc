@@ -35,6 +35,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'valloric/matchtagalways'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/gv.vim'
+Plugin 'alvan/vim-closetag'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -66,6 +67,15 @@ autocmd FileType vim setlocal foldmethod=marker
 " Change the trigger key for Emmet to E instead of Y
 let g:user_emmet_leader_key="<C-e>"
 
+" Change emmet user settings
+let g:user_emmet_settings = {
+\  'jsx' : {
+\      'extends' : 'html',
+\      'attribute_name': {'class': 'class', 'for': 'for'},
+\      'empty_element_suffix': ' />'
+\  },
+\}
+
 " Use jsx syntax for marko files
 autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
 
@@ -82,6 +92,18 @@ nmap Q <nop>
 " Ignore cases when patern searching
 set ignorecase
 set smartcase
+
+" Let matchtagalways work work for javascript.jsx files
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'javascript.jsx' : 1
+    \}
+
+" Let tagcomplete work for marko files
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.marko'
 
 " }}}
 
@@ -287,6 +309,9 @@ imap <LEFT> <nop>
 imap <UP> <nop>
 imap <RIGHT> <nop>
 imap <DOWN> <nop>
+
+" Map to change directory into the current open file
+nnoremap <Leader>cd :cd %:p:h<CR>
 
 " }}}
 
