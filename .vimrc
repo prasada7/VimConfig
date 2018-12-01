@@ -160,7 +160,7 @@ let g:indentLine_fileTypeExclude = ['json']
 let mapleader = ","
 
 " Map the Nerd tree toggle to F4
-nnoremap <F4> :NERDTreeToggle<CR>
+nnoremap <F4> :NERDTreeToggle \| setlocal rnu<CR>
 
 " Map to list all custom mappings
 nnoremap <Leader>cm :Maps<CR> ~/.vimrc
@@ -234,7 +234,7 @@ nnoremap <Leader>cf :bw<CR>
 nnoremap <Leader>nt :tabe<CR>
 
 " Map to locate the current file in NERDTree
-nmap <Leader>ff :NERDTreeFind<CR>
+nmap <Leader>ff :NERDTreeFind \| setlocal rnu<CR>
 
 " Map to open and source the vimrc file
 nmap <Leader>vc :e $MYVIMRC<CR>
