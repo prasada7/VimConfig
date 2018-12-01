@@ -34,7 +34,7 @@ Plugin 'junegunn/seoul256.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'valloric/matchtagalways'
 Plugin 'scrooloose/nerdcommenter'
-
+Plugin 'junegunn/gv.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
