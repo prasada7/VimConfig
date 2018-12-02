@@ -280,6 +280,7 @@ nnoremap <Leader>9 9gt
 
 " Map to search and replace
 nnoremap <C-h> :%s///g<left><left><left>
+nnoremap <S-h> :s///g<left><left><left>
 
 " Map to move the view up and down
 nnoremap <Leader>k 5<C-y>
