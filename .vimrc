@@ -37,6 +37,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/gv.vim'
 Plugin 'alvan/vim-closetag'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'romainl/Apprentice'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -106,11 +107,14 @@ let g:mta_filetypes = {
 " Let tagcomplete work for marko files
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.marko'
 
+" Remove escape key delay
+set ttimeoutlen=0
+
 " }}}
 
 
 " Visual configurations {{{
-" Set the color scheme to seoul256
+" Set the color scheme
 let g:seoul256_background = 233
 set background=dark
 silent! color seoul256
