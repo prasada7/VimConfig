@@ -36,6 +36,7 @@ Plugin 'valloric/matchtagalways'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/gv.vim'
 Plugin 'alvan/vim-closetag'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -317,9 +318,6 @@ nnoremap <Leader>cd :cd %:p:h<CR>
 " }}}
 
 " INSERT MODE {{{
-
-" Close brackets whenever a open bracket is placed
-inoremap {<CR> {<CR>}<UP><C-o>o<tab>
 
 " Make shift-tab as outdent
 inoremap <S-TAB> <C-d>
