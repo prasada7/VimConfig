@@ -305,6 +305,7 @@ nmap _pl :set ft=perl<CR>
 nmap _java :set ft=java<CR>
 nmap _sh :set ft=sh<CR>
 nmap _html :set ft=html<CR>
+nmap _py :set ft=python<CR>
 
 " Maps to disable the arrow keys
 map <LEFT> <nop>
@@ -318,6 +319,9 @@ imap <DOWN> <nop>
 
 " Map to change directory into the current open file
 nnoremap <Leader>cd :cd %:p:h<CR>
+
+" Map to run the current file in shell
+nnoremap <Leader>rf :!%:p<CR>
 
 " }}}
 

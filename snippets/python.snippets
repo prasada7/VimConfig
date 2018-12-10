@@ -1,0 +1,46 @@
+# Basics
+snippet print
+	print(${0})
+
+snippet printf
+	print(${0}, end='')
+
+# Imports
+snippet im
+	import ${0}
+
+snippet imas
+	import ${1} as ${0}
+
+snippet imf
+	from ${1} import ${0}
+
+snippet imfas
+	from ${1} import ${2} as ${0}
+
+# Conditionals
+snippet if
+	if ${1:condition}:
+		${0}
+
+snippet elif
+	elif ${1:condition}:
+		${0}
+
+snippet else
+	else:
+		${0}
+
+# Loops
+snippet fori
+	for i in range(${1:range})
+		${0}
+
+snippet forin
+	for ${1:element} in ${2:object}:
+		${0}
+
+snippet while
+	while ${1:condition}:
+		${0}
+
