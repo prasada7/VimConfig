@@ -393,10 +393,23 @@ function! GetLabel()
     return s
 endfunction
 
+" Function to get the path to the snippets file
+function! GetSnippets()
+    let snippetsFile = "~/.vim/snippets/" . &filetype. ".snippets"
+    return snippetsFile
+endfunction
+
 " Function to list all snippets for the current filetype in the buffer
 function! ListSnippets()
-    let listOfSnippets = system("echo ':q! to quit' && cat ~/.vim/snippets/" . &filetype. ".snippets 2>/dev/null")
+    let snippetsLocation = GetSnippets()
+    let listOfSnippets = system("echo ':q! to quit' && cat " . snippetsLocation . " 2>/dev/null")
     vnew | setlocal ft=snippets | put=listOfSnippets
+endfunction
+
+" Funtion to edit the snippets file  for the current filetype in the buffer
+function! EditSnippets()
+    let snippetsLocation = GetSnippets()
+    execute "tabe" snippetsLocation
 endfunction
 
 " }}}
