@@ -337,6 +337,9 @@ inoremap <S-TAB> <C-d>
 " Map Ctrl+x to cut in visual mode
 vmap <C-x> ygvx
 
+" Map to global search on the selected text
+vmap <Leader>gs y<ESC><C-F><C-R>"<right><right><right>
+
 " }}}
 
 " COMMAND MODE {{{
