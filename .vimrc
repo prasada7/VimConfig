@@ -344,6 +344,13 @@ vmap <C-x> ygvx
 " Map to set W to save the file instead
 cmap W<CR> <ESC><Leader>w
 
+" Abbreviate basic bash commands
+cnoreabbrev mkdir !mkdir
+cnoreabbrev cp !cp
+cnoreabbrev mv !mv
+cnoreabbrev rm !rm
+cnoreabbrev git !git
+
 " }}}
 " }}}
 
