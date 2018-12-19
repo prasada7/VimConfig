@@ -2,8 +2,14 @@
 snippet conlog
 	console.log(${0:Something to log});
 
-snippet import
-	import {${1:identities}} from "${2:location}";
+snippet im
+	import "${0}";
+
+snippet imf
+	import ${1:object} from "${0:location}";
+
+snippet imfa
+	import {${1:functions}} from "${2:location}";
 
 snippet constructor
 	constructor(${1:field1}, ${2:field2}) {
@@ -21,7 +27,7 @@ snippet function
 
 snippet =>
 	(${1}) => {
-		${0:body}
+		${0}
 	}
 
 # Docs
@@ -44,18 +50,18 @@ snippet returns
 
 # Conditionals
 snippet if
-	if (${1:condition}) {
-		${0:body}
+	if (${1}) {
+		${0}
 	}
 
 snippet else
 	else {
-		${0:otherwise}
+		${0}
 	}
 
 snippet elif
-	else if (${1:condition}) {
-		${0:body}
+	else if (${1}) {
+		${0}
 	}
 
 # MarkoJS
@@ -66,32 +72,35 @@ snippet comp
 
 snippet mcond
 	<${1:if}(${2:condition})>
-		${0:body}
+		${0}
 	</$1>
 
 snippet melse
 	<else>
-		${0:body}
+		${0}
 	</else>
+
+snippet <!
+	<!-- ${1:TODO} -->
 
 # Jest
 snippet describe
 	describe('${1:description}', () => {
-		${0:testBody}
+		${0}
 	});
 
 snippet it
 	it('${1:decription}', () => {
-		${0:testBody}
+		${0}
 	});
 
 snippet be
 	beforeEach(() => {
-		${0:body}
+		${0}
 	});
 
 snippet expect
-	expect(${1:expected}).to${2:function}(${0});
+	expect(${1:expected})${2}.to${3:function}(${0});
 
 # Graphql snippets
 snippet grreq

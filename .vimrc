@@ -150,7 +150,7 @@ let g:lightline = {
     \    'tabline': 0
     \ },
     \ 'component': {
-    \    'filenamebuf': '%f[%n]'
+    \    'filenamebuf': '%{expand("%:h")}[%n]'
     \ },
     \ 'component_function': {
     \    'gitbranch': 'fugitive#head'
@@ -387,13 +387,16 @@ function! GetLabel()
         let buflist = tabpagebuflist(index)
         let winnr = tabpagewinnr(index)
         let bufname = bufname(buflist[winnr -1])
-
+        let filepath = CompressPath(bufname)
+        let filename = fnamemodify(bufname, ':t')
+        let isCurrentTab = (index == currentTab ? 1 : 0)
         " Indicate the tab number and determine whether this tab is selected
         let s .= '%' . index . 'T'
-        let s .= (index == currentTab ? '%#TabLineSel#' : '%#TabLine#')
+        let s .= (isCurrentTab ? '%#TabLineSel#' : '%#TabLine#')
 
         " Add the file name along with the tab number
-        let s .= ' ' . index . '| ' . (bufname != ''? bufname : 'New File' )
+        let nameToDisplay = (isCurrentTab ? filename : filepath)
+        let s .= ' ' . index . '| ' . (bufname != ''?  nameToDisplay : 'New File' )
 
         " Add the modifed symbol if the buffer has been modified
         let s .= (getbufvar(index, '&mod') == 1 ? '+ ' : ' ')
@@ -405,6 +408,27 @@ function! GetLabel()
     let s .= '%T%#TabLineFill#%='
     let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
     return s
+endfunction
+
+function! CompressPath(filename)
+    let filehead = fnamemodify(a:filename, ':h')
+    let absolutePath = 0
+
+    " If an absolute path is provided, then remove the first char for now
+    if strpart(filehead, 0, 1) == '/'
+        let absolutePath = 1
+        let filehead = strpart(filehead, 1)
+    endif
+
+    " Compress the path
+    let filetail = fnamemodify(a:filename, ':t')
+    let match = './\+'
+    let shortHead = join(map(split(filehead, match), 'strpart(v:val, 0, 1)'), '/')
+    let compressedPath = shortHead . '/' . filetail
+
+    " Add back the first character if an absolute path was provided
+    let compressedPath = (absolutePath ? '/' . compressedPath : compressedPath)
+    return compressedPath
 endfunction
 
 " Function to get the path to the snippets file
