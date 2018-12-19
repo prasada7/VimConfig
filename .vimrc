@@ -38,6 +38,7 @@ Plugin 'junegunn/gv.vim'
 Plugin 'alvan/vim-closetag'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'romainl/Apprentice'
+Plugin 'tpope/vim-dispatch'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -109,6 +110,9 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.marko'
 
 " Remove escape key delay
 set ttimeoutlen=0
+
+" Set the default dispatch variable
+let b:dispatch = "bash"
 
 " }}}
 
@@ -448,6 +452,16 @@ endfunction
 function! EditSnippets()
     let snippetsLocation = GetSnippets()
     execute "tabe" snippetsLocation
+endfunction
+
+" Function to cd into the git root
+function! GitRoot()
+    let gitRoot = system("git rev-parse --show-toplevel")
+
+    " If the root was found without error, cd into it
+    if v:shell_error == 0
+        execute "cd" gitRoot
+    endif
 endfunction
 
 " }}}

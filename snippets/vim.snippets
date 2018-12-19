@@ -2,18 +2,18 @@ snippet plug
 	Plugin '${1:plugin}'
 
 snippet function
-	function ${1:name}(${2:parameters})
-		${3:body}
+	function! ${1:name}(${2})
+		${0}
 	endfunction
 
 snippet while
 	while ${1:condition}
-		${2:body}
+		${0}
 	endwhile
 
 snippet if
 	if ${1:condition}
-		${2:body}
+		${0}
 	endif
 
 snippet leader
@@ -22,3 +22,5 @@ snippet leader
 snippet bmap
 	cnoreabbrev ${1:less} !$1
 
+snippet sys
+	system(${0})
