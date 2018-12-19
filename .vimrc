@@ -327,6 +327,9 @@ nnoremap <Leader>cd :cd %:p:h<CR>
 " Map to run the current file in shell
 nnoremap <Leader>rf :!%:p<CR>
 
+" Map to run tasks asynchrously
+nnoremap <Leader>as :Dispatch 
+
 " }}}
 
 " INSERT MODE {{{
