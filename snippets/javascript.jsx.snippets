@@ -64,6 +64,37 @@ snippet elif
 		${0}
 	}
 
+# Loops
+snippet for
+	for (${1};${2};${3}) {
+		${0}
+	}
+
+snippet foreach
+	foreach(${1} => {
+		${0}
+	});
+
+snippet forin
+	for (${1} in ${2}) {
+		${0}
+	}
+
+snippet forof
+	for (${1} of ${2}) {
+		${0}
+	}
+
+snippet while
+	while (${1}) {
+		${0}
+	}
+
+snippet dowhile
+	do {
+		${0}
+	} while(${1});
+
 # MarkoJS
 snippet comp
 	<${1:component} class="${2:class}"${3}>
