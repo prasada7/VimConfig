@@ -467,5 +467,10 @@ function! GitRoot()
     endif
 endfunction
 
+" Function to print the full path of the current buffer
+function! FullPath()
+    echo expand("%:p")
+endfunction
+
 " }}}
 
