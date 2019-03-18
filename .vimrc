@@ -239,7 +239,7 @@ nnoremap <Leader>gd :Gdiff<CR><C-w>H
 nnoremap <Leader>gb :Gblame<CR><C-w>H
 nnoremap <Leader>gg :GitGutter<CR>
 nnoremap <Leader>gr :Gread<CR>
-nnoremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gw :Gwrite<CR>:GitGutter<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gf :GFiles<CR>
 
@@ -327,7 +327,7 @@ nnoremap <Leader>cd :cd %:p:h<CR>
 " Map to run the current file in shell
 nnoremap <Leader>rf :!%:p<CR>
 
-" Map to run tasks asynchrously
+" Map to run tasks asynchrously and close
 nnoremap <Leader>as :Dispatch 
 
 " }}}
