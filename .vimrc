@@ -39,6 +39,7 @@ Plugin 'alvan/vim-closetag'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'romainl/Apprentice'
 Plugin 'tpope/vim-dispatch'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -79,8 +80,9 @@ let g:user_emmet_settings = {
 \  },
 \}
 
-" Use jsx syntax for marko files
+" Use jsx syntax for marko files and mjs files
 autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.mjs set filetype=javascript.jsx
 
 " Map ZZ to lower case to prevent unintentional save and quit
 nnoremap ZZ zz
