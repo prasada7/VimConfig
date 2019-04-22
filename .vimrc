@@ -367,6 +367,32 @@ cnoreabbrev git !git
 " }}}
 
 
+" NeoVim Configurations {{{
+if has("nvim")
+
+    " Functionality {{{
+    "" Map Exc to return to normal mode in the terminal
+    tnoremap <Esc> <C-\><C-n>
+    "" Remove linenumers when entering the terminal
+    autocmd FileType terminal setlocal nonu nornu
+    "" Change the mapping of esc when fzf in spawned
+    autocmd FileType fzf
+        \ tmap <ESC> <C-c> |
+        \ setlocal nonu nornu
+    autocmd BufLeave *
+        \ if &ft == 'fzf' |
+            \ tnoremap <Esc> <C-\><C-n> |
+        \ endif
+    " }}}
+
+    " Shortcuts {{{
+    nnoremap <C-SPACE> :sp term://bash<CR> \| <C-W>10_gg \| :set ft=terminal<CR> \| A
+    " }}}
+
+    endif
+"}}}
+
+
 " Functions {{{
 
 " A function for removing trailing white spaces
