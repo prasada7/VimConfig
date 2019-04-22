@@ -129,8 +129,8 @@ silent! color seoul256
 hi ColorColumn ctermbg=234
 let &colorcolumn="80"
 
-" Enable line count
-set nu
+" Enable line count with relative line numbers
+set nu rnu
 
 " Set a clear cursor line
 hi clear CursorLine
@@ -170,9 +170,6 @@ set tabline=%!GetLabel()
 
 " Customize fzf
 let g:fzf_layout = { 'left': '~50%' }
-
-" Enable relative number
-set rnu
 
 " NERDTree conf
 let NERDTreeIgnore = ['node_modules']
@@ -371,14 +368,14 @@ cnoreabbrev git !git
 if has("nvim")
 
     " Functionality {{{
+    "" Change the path to the vimrc
+    let $MYVIMRC = '~/.vimrc'
     "" Map Exc to return to normal mode in the terminal
     tnoremap <Esc> <C-\><C-n>
-    "" Remove linenumers when entering the terminal
-    autocmd FileType terminal setlocal nonu nornu
+    "" Remove linenumbers on terminal open
+    autocmd TermOpen * setlocal nonu nornu
     "" Change the mapping of esc when fzf in spawned
-    autocmd FileType fzf
-        \ tmap <ESC> <C-c> |
-        \ setlocal nonu nornu
+    autocmd FileType fzf tmap <ESC> <C-c>
     autocmd BufLeave *
         \ if &ft == 'fzf' |
             \ tnoremap <Esc> <C-\><C-n> |
@@ -386,7 +383,7 @@ if has("nvim")
     " }}}
 
     " Shortcuts {{{
-    nnoremap <C-SPACE> :sp term://bash<CR> \| <C-W>10_gg \| :set ft=terminal<CR> \| A
+    nnoremap <C-SPACE> :sp term://bash<CR> \| <C-W>10_ggA
     " }}}
 
     endif
