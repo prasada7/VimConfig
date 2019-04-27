@@ -41,6 +41,7 @@ Plugin 'romainl/Apprentice'
 Plugin 'tpope/vim-dispatch'
 Plugin 'w0rp/ale'
 Plugin 'neoclide/coc.nvim'
+Plugin 'ntpeters/vim-better-whitespace'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,6 +51,9 @@ filetype plugin indent on    " required
 
 
 " Functionality {{{
+
+" Remove the introductory message
+set shortmess=I
 
 " Set tab to four spaces
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab nowrap
@@ -82,22 +86,19 @@ let g:user_emmet_settings = {
 \}
 
 " Use jsx syntax for marko files and mjs files
-autocmd BufNewFile,BufRead *.marko set filetype=javascript.jsx
-autocmd BufNewFile,BufRead *.mjs set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.\(marko\|mjs\) set filetype=javascript.jsx
 
 " Map ZZ to lower case to prevent unintentional save and quit
 nnoremap ZZ zz
 
 " Change the way vim splits windows
-set splitbelow
-set splitright
+set splitbelow splitright
 
 " Disable ex mode
 nmap Q <nop>
 
 " Ignore cases when patern searching
-set ignorecase
-set smartcase
+set ignorecase smartcase
 
 " Let matchtagalways work work for javascript.jsx files
 let g:mta_filetypes = {
@@ -114,9 +115,6 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.marko'
 " Remove escape key delay
 set ttimeoutlen=0
 
-" Set the default dispatch variable
-let b:dispatch = "bash"
-
 " }}}
 
 
@@ -128,23 +126,16 @@ silent! color seoul256
 
 " Set the character count marker at 80
 hi ColorColumn ctermbg=234
-let &colorcolumn="80"
+set cc=+1
 
 " Enable line count with relative line numbers
 set nu rnu
 
-" Set a clear cursor line
-hi clear CursorLine
-
 " Display the status line
 set laststatus=2
 
-" Remove the introductory message
-set shortmess=I
-
-" Highlight all trailing white spaces
-set hlsearch
-silent! /\s\+$
+" Change the highlight color of the trailing spaces
+highlight ExtraWhitespace ctermbg=229  
 
 " Customize the status line
 let g:lightline = {
@@ -162,7 +153,7 @@ let g:lightline = {
     \ 'component_function': {
     \    'gitbranch': 'fugitive#head'
     \ }
-    \ }
+\ }
 hi TablineSel ctermbg=233
 set showtabline=2 noshowmode
 
@@ -328,7 +319,7 @@ nnoremap <Leader>cd :cd %:p:h<CR>
 nnoremap <Leader>rf :!%:p<CR>
 
 " Map to run tasks asynchrously and close
-nnoremap <Leader>as :Dispatch 
+nnoremap <Leader>as :Dispatch
 
 " }}}
 
@@ -369,6 +360,7 @@ cnoreabbrev git !git
 if has("nvim")
 
     " Functionality {{{
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     "" Change the path to the vimrc
     let $MYVIMRC = '~/.vimrc'
     "" Map Exc to return to normal mode in the terminal
@@ -499,4 +491,5 @@ function! FullPath()
 endfunction
 
 " }}}
+
 
