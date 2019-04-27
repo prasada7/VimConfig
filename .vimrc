@@ -40,6 +40,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'romainl/Apprentice'
 Plugin 'tpope/vim-dispatch'
 Plugin 'w0rp/ale'
+Plugin 'neoclide/coc.nvim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
