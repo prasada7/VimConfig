@@ -1,3 +1,209 @@
+" Functions {{{
+
+" A function for removing trailing white spaces
+function! Trailing()
+    %s/\s\+$//ge
+endfunction
+
+" A function for toggling mouse control
+function! ToggleMouse()
+    " Check if mouse is set and toggle accordingly
+    if &mouse == 'a'
+        set mouse=
+        echo "mouse disabled"
+    else
+        set mouse=a
+        echo "mouse enabled"
+    endif
+endfunction
+
+" Function to create the label for the tabline
+function! GetLabel()
+    let s = ''
+    let index = 1
+    let currentTab = tabpagenr()
+    " Loop through all the pages
+    while index <= tabpagenr('$')
+        let buflist = tabpagebuflist(index)
+        let winnr = tabpagewinnr(index)
+        let bufname = bufname(buflist[winnr -1])
+        let filepath = CompressPath(bufname)
+        let filename = fnamemodify(bufname, ':t')
+        let isCurrentTab = (index == currentTab ? 1 : 0)
+        " Indicate the tab number and determine whether this tab is selected
+        let s .= '%' . index . 'T'
+        let s .= (isCurrentTab ? '%#TabLineSel#' : '%#TabLine#')
+
+        " Add the file name along with the tab number
+        let nameToDisplay = (isCurrentTab ? filename : filepath)
+        let s .= ' ' . index . '| ' . (bufname != ''?  nameToDisplay : 'New File' )
+
+        " Add the modifed symbol if the buffer has been modified
+        let s .= (getbufvar(index, '&mod') == 1 ? '+ ' : ' ')
+
+        let index += 1
+    endwhile
+
+    " Append the tabfill start indication
+    let s .= '%T%#TabLineFill#%='
+    let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+    return s
+endfunction
+
+function! CompressPath(filename)
+    let filehead = fnamemodify(a:filename, ':h')
+    let absolutePath = 0
+
+    " If an absolute path is provided, then remove the first char for now
+    if strpart(filehead, 0, 1) == '/'
+        let absolutePath = 1
+        let filehead = strpart(filehead, 1)
+    endif
+
+    " Compress the path
+    let filetail = fnamemodify(a:filename, ':t')
+    let match = './\+'
+    let shortHead = join(map(split(filehead, match), 'strpart(v:val, 0, 1)'), '/')
+    let compressedPath = shortHead . '/' . filetail
+
+    " Add back the first character if an absolute path was provided
+    let compressedPath = (absolutePath ? '/' . compressedPath : compressedPath)
+    return compressedPath
+endfunction
+
+" Function to get the path to the snippets file
+function! GetSnippets()
+    let snippetsFile = "~/.vim/snippets/" . &filetype. ".snippets"
+    return snippetsFile
+endfunction
+
+" Function to list all snippets for the current filetype in the buffer
+function! ListSnippets()
+    let snippetsLocation = GetSnippets()
+    let listOfSnippets = system("echo ':q! to quit' && cat " . snippetsLocation . " 2>/dev/null")
+    vnew | setlocal ft=snippets | put=listOfSnippets
+endfunction
+
+" Funtion to edit the snippets file  for the current filetype in the buffer
+function! EditSnippets()
+    let snippetsLocation = GetSnippets()
+    execute "tabe" snippetsLocation
+endfunction
+
+" Function to cd into the git root
+function! GitRoot()
+    let gitRoot = system("git rev-parse --show-toplevel")
+
+    " If the root was found without error, cd into it
+    if v:shell_error == 0
+        execute "cd" gitRoot
+    endif
+endfunction
+
+" Function to print the full path of the current buffer
+function! FullPath()
+    echo expand("%:p")
+endfunction
+
+" Function to source the visual configurations
+function! SourceVisualConf()
+    " Set the color scheme
+    set background=dark
+    let g:seoul256_background = 233
+    let l:apprenticeGreen = 101
+    "silent! color seoul256
+    color apprentice
+
+:    " Define defaults for the colors
+    let l:background = 233                               " Background color
+    let l:numberLinebg = 233                             " Line number background color
+    let l:currentLinefg = ''                             " Current line number foreground color
+    let l:searchbg = ''                                  " Search results highlight color
+    let l:trailingbg = ''                                " Trailing spaces highlight color
+    let l:currentTabLinebg = ''                          " Active tab background color
+    let l:visual = { 'cterm':  '', 'fg': '', 'bg': '' }  " Visual highlight colors
+    let l:colorcolbg = 234                               " 80th col highlight color
+    let l:gitdiff = {
+        \ 'add': { 'cterm':  'none', 'fg': 'none', 'bg': 22 },
+        \ 'del': { 'cterm':  'none', 'fg': 'none', 'bg': 95 },
+        \ 'change': { 'cterm':  'none', 'fg': 'none', 'bg': 236 },
+        \ 'text': { 'cterm':  'bold', 'fg': 'none', 'bg': 52 }
+    \ }
+
+    " Color scheme specific styles
+    if g:colors_name == 'apprentice'
+
+        let l:currentLinefg = l:apprenticeGreen
+        let l:searchbg = l:apprenticeGreen
+        let l:trailingbg = l:apprenticeGreen
+        let l:visual = { 'bg': 88, 'fg': 'none','cterm': 'none' }
+
+    elseif g:colors_name == 'seoul256'
+
+        let l:currentTabLinebg = 233
+
+    endif
+
+    " Set the background and foreground configs
+    execute printf('silent! highlight Normal ctermbg=%s', l:background)
+    execute printf('silent! highlight LineNr ctermbg=%s', l:numberLinebg)
+    execute printf('silent! highlight CursorLineNr ctermfg=%s', l:currentLinefg)
+    execute printf('silent! highlight ExtraWhitespace ctermbg=%s', l:trailingbg)
+    execute printf('silent! highlight Search ctermbg=%s', l:searchbg)
+    execute printf('silent! highlight TablineSel ctermbg=%s', l:currentTabLinebg)
+    execute printf('silent! highlight ColorColumn ctermbg=%s', l:colorcolbg)
+    execute printf('silent! highlight Visual cterm=%s ctermfg=%s ctermbg=%s', l:visual.cterm, l:visual.fg, l:visual.bg)
+    execute printf('silent! highlight DiffAdd cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.add.cterm, l:gitdiff.add.fg, l:gitdiff.add.bg)
+    execute printf('silent! highlight DiffChange cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.change.cterm, l:gitdiff.change.fg, l:gitdiff.change.bg)
+    execute printf('silent! highlight DiffDelete cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.del.cterm, l:gitdiff.del.fg, l:gitdiff.del.bg)
+    execute printf('silent! highlight DiffText cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.text.cterm, l:gitdiff.text.fg, l:gitdiff.text.bg)
+
+    " Set the character count marker at 80
+    set cc=+1
+
+    " Enable line count with relative line numbers
+    set nu rnu
+
+    " Display the status line
+    set laststatus=2
+
+    " Customize the status line
+    let g:lightline = {
+                \ 'active': {
+                \   'left': [ [ 'mode' ],
+                \             [ 'gitbranch', 'readonly', 'filenamebuf', 'modified' ] ]
+                \ },
+                \ 'enable': {
+                \    'statusline': 1,
+                \    'tabline': 0
+                \ },
+                \ 'component': {
+                \    'filenamebuf': '%{expand("%:h")}[%n]'
+                \ },
+                \ 'component_function': {
+                \    'gitbranch': 'fugitive#head'
+                \ }
+                \ }
+    set showtabline=2 noshowmode
+
+    " Customize the tabline
+    set tabline=%!GetLabel()
+
+    " Customize fzf
+    let g:fzf_layout = { 'left': '~50%' }
+
+    " NERDTree conf
+    let NERDTreeIgnore = ['node_modules']
+    let NERDTreeShowHidden=1
+    let NERDTreeMinimalUI=1
+
+    " Indent line conf
+    let g:indentLine_char = '▏'
+    let g:indentLine_fileTypeExclude = ['json']
+endfunction
+" }}}
+
+
 " Vundle and Plugins {{{
 
 set nocompatible              " be iMproved, required
@@ -119,58 +325,12 @@ set ttimeoutlen=0
 
 
 " Visual configurations {{{
-" Set the color scheme
-let g:seoul256_background = 233
-set background=dark
-silent! color seoul256
 
-" Set the character count marker at 80
-hi ColorColumn ctermbg=234
-set cc=+1
-
-" Enable line count with relative line numbers
-set nu rnu
-
-" Display the status line
-set laststatus=2
-
-" Change the highlight color of the trailing spaces
-highlight ExtraWhitespace ctermbg=229  
-
-" Customize the status line
-let g:lightline = {
-    \ 'active': {
-    \   'left': [ [ 'mode' ],
-    \             [ 'gitbranch', 'readonly', 'filenamebuf', 'modified' ] ]
-    \ },
-    \ 'enable': {
-    \    'statusline': 1,
-    \    'tabline': 0
-    \ },
-    \ 'component': {
-    \    'filenamebuf': '%{expand("%:h")}[%n]'
-    \ },
-    \ 'component_function': {
-    \    'gitbranch': 'fugitive#head'
-    \ }
-\ }
-hi TablineSel ctermbg=233
-set showtabline=2 noshowmode
-
-" Customize the tabline
-set tabline=%!GetLabel()
-
-" Customize fzf
-let g:fzf_layout = { 'left': '~50%' }
-
-" NERDTree conf
-let NERDTreeIgnore = ['node_modules']
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI=1
-
-" Indent line conf
-let g:indentLine_char = '▏'
-let g:indentLine_fileTypeExclude = ['json']
+" Edit the function when visuals need to be updated. This is done such that
+" the confs can be resourced when NVIM starts. Rerun the visual confs whenver
+" the color scheme changes
+call SourceVisualConf()
+au ColorScheme * call SourceVisualConf()
 
 " }}}
 
@@ -381,115 +541,4 @@ if has("nvim")
 
     endif
 "}}}
-
-
-" Functions {{{
-
-" A function for removing trailing white spaces
-function! Trailing()
-    %s/\s\+$//ge
-endfunction
-
-" A function for toggling mouse control
-function! ToggleMouse()
-    " Check if mouse is set and toggle accordingly
-    if &mouse == 'a'
-        set mouse=
-        echo "mouse disabled"
-    else
-        set mouse=a
-        echo "mouse enabled"
-    endif
-endfunction
-
-" Function to create the label for the tabline
-function! GetLabel()
-    let s = ''
-    let index = 1
-    let currentTab = tabpagenr()
-    " Loop through all the pages
-    while index <= tabpagenr('$')
-        let buflist = tabpagebuflist(index)
-        let winnr = tabpagewinnr(index)
-        let bufname = bufname(buflist[winnr -1])
-        let filepath = CompressPath(bufname)
-        let filename = fnamemodify(bufname, ':t')
-        let isCurrentTab = (index == currentTab ? 1 : 0)
-        " Indicate the tab number and determine whether this tab is selected
-        let s .= '%' . index . 'T'
-        let s .= (isCurrentTab ? '%#TabLineSel#' : '%#TabLine#')
-
-        " Add the file name along with the tab number
-        let nameToDisplay = (isCurrentTab ? filename : filepath)
-        let s .= ' ' . index . '| ' . (bufname != ''?  nameToDisplay : 'New File' )
-
-        " Add the modifed symbol if the buffer has been modified
-        let s .= (getbufvar(index, '&mod') == 1 ? '+ ' : ' ')
-
-        let index += 1
-    endwhile
-
-    " Append the tabfill start indication
-    let s .= '%T%#TabLineFill#%='
-    let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
-    return s
-endfunction
-
-function! CompressPath(filename)
-    let filehead = fnamemodify(a:filename, ':h')
-    let absolutePath = 0
-
-    " If an absolute path is provided, then remove the first char for now
-    if strpart(filehead, 0, 1) == '/'
-        let absolutePath = 1
-        let filehead = strpart(filehead, 1)
-    endif
-
-    " Compress the path
-    let filetail = fnamemodify(a:filename, ':t')
-    let match = './\+'
-    let shortHead = join(map(split(filehead, match), 'strpart(v:val, 0, 1)'), '/')
-    let compressedPath = shortHead . '/' . filetail
-
-    " Add back the first character if an absolute path was provided
-    let compressedPath = (absolutePath ? '/' . compressedPath : compressedPath)
-    return compressedPath
-endfunction
-
-" Function to get the path to the snippets file
-function! GetSnippets()
-    let snippetsFile = "~/.vim/snippets/" . &filetype. ".snippets"
-    return snippetsFile
-endfunction
-
-" Function to list all snippets for the current filetype in the buffer
-function! ListSnippets()
-    let snippetsLocation = GetSnippets()
-    let listOfSnippets = system("echo ':q! to quit' && cat " . snippetsLocation . " 2>/dev/null")
-    vnew | setlocal ft=snippets | put=listOfSnippets
-endfunction
-
-" Funtion to edit the snippets file  for the current filetype in the buffer
-function! EditSnippets()
-    let snippetsLocation = GetSnippets()
-    execute "tabe" snippetsLocation
-endfunction
-
-" Function to cd into the git root
-function! GitRoot()
-    let gitRoot = system("git rev-parse --show-toplevel")
-
-    " If the root was found without error, cd into it
-    if v:shell_error == 0
-        execute "cd" gitRoot
-    endif
-endfunction
-
-" Function to print the full path of the current buffer
-function! FullPath()
-    echo expand("%:p")
-endfunction
-
-" }}}
-
 
