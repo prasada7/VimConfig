@@ -129,6 +129,7 @@ function! SourceVisualConf()
         \ 'change': { 'cterm':  'none', 'fg': 'none', 'bg': 236 },
         \ 'text': { 'cterm':  'bold', 'fg': 'none', 'bg': 52 }
     \ }
+    let l:functions = ''
 
     " Color scheme specific styles
     if g:colors_name == 'apprentice'
@@ -137,10 +138,12 @@ function! SourceVisualConf()
         let l:searchbg = l:apprenticeGreen
         let l:trailingbg = l:apprenticeGreen
         let l:visual = { 'bg': 88, 'fg': 'none','cterm': 'none' }
+        let l:functions = 3
 
     elseif g:colors_name == 'seoul256'
 
-        let l:currentTabLinebg = 233
+        let l:currentTabLinebg = g:seoul256_background
+        let l:numberLinebg = 234
 
     endif
 
@@ -157,6 +160,7 @@ function! SourceVisualConf()
     execute printf('silent! highlight DiffChange cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.change.cterm, l:gitdiff.change.fg, l:gitdiff.change.bg)
     execute printf('silent! highlight DiffDelete cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.del.cterm, l:gitdiff.del.fg, l:gitdiff.del.bg)
     execute printf('silent! highlight DiffText cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.text.cterm, l:gitdiff.text.fg, l:gitdiff.text.bg)
+    execute printf('silent! highlight Function ctermfg=%s', l:functions)
 
     " Set the character count marker at 80
     set cc=+1
