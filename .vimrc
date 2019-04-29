@@ -137,7 +137,7 @@ function! SourceVisualConf()
         let l:currentLinefg = l:apprenticeGreen
         let l:searchbg = l:apprenticeGreen
         let l:trailingbg = l:apprenticeGreen
-        let l:visual = { 'bg': 88, 'fg': 'none','cterm': 'none' }
+        let l:visual = { 'bg': 23, 'fg': 'none','cterm': 'none' }
         let l:functions = 3
 
     elseif g:colors_name == 'seoul256'
