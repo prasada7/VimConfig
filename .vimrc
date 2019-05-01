@@ -257,6 +257,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'w0rp/ale'
 Plugin 'neoclide/coc.nvim'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'moll/vim-node'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
