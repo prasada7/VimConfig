@@ -48,8 +48,7 @@ fi
 # Create a symbolic link to the vimrc from the home direcory
 ln -s ~/.vim/.vimrc ~/.vimrc 2>/dev/null
 
-# Check if the link succeeded, if not, simply ask the user to make a link manu
-# -ally
+# Check if the link succeeded, if not, back it up using an incrementer
 if [ $? -ne 0 ];
 then
     # Find the the nth backup to rename the existing conf file to

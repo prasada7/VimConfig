@@ -100,8 +100,12 @@ function! GitRoot()
     endif
 endfunction
 
-" Function to print the full path of the current buffer
+" Function to print and save the full path of the current buffer
 function! FullPath()
+    let fullPath = expand("%:p")
+    let @+ = fullPath
+    let @* = fullPath
+
     echo expand("%:p")
 endfunction
 
@@ -205,6 +209,7 @@ function! SourceVisualConf()
     let g:indentLine_char = '▏'
     let g:indentLine_fileTypeExclude = ['json']
 endfunction
+
 " }}}
 
 
@@ -325,6 +330,10 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.marko'
 " Remove escape key delay
 set ttimeoutlen=0
 
+" Enable incremental search and disable gloabal search highlight
+set incsearch
+set nohlsearch
+
 " }}}
 
 
@@ -366,7 +375,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap <C-p> :FZF<CR>
 
 " Map Alt arrow to moving a line up or down and placing cursor to start/end
-nnoremap <M-UP> ddkkp
+nnoremap <M-UP> ddkP
 nnoremap <M-DOWN> ddp
 map <M-RIGHT> <END>
 map <M-LEFT> <HOME>
