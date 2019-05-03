@@ -103,8 +103,12 @@ endfunction
 " Function to print and save the full path of the current buffer
 function! FullPath()
     let fullPath = expand("%:p")
-    let @+ = fullPath
-    let @* = fullPath
+
+    " Copy to the clipboard if it exists
+    if &clipboard != ""
+        let @+ = fullPath
+        let @* = fullPath
+    endif
 
     echo expand("%:p")
 endfunction
@@ -118,7 +122,7 @@ function! SourceVisualConf()
     "silent! color seoul256
     color apprentice
 
-:    " Define defaults for the colors
+    " Define defaults for the colors
     let l:background = 233                               " Background color
     let l:numberLinebg = 233                             " Line number background color
     let l:currentLinefg = ''                             " Current line number foreground color
