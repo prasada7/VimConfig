@@ -202,7 +202,7 @@ function! SourceVisualConf()
     set tabline=%!GetLabel()
 
     " Customize fzf
-    let g:fzf_layout = { 'left': '~50%' }
+    let g:fzf_layout = { 'window': 'enew' }
 
     " NERDTree conf
     let NERDTreeIgnore = ['node_modules']
@@ -262,6 +262,7 @@ Plugin 'w0rp/ale'
 Plugin 'neoclide/coc.nvim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'moll/vim-node'
+Plugin 'pbogut/fzf-mru.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -419,7 +420,7 @@ nnoremap <F7> mt:noh \| silent! /\s\+$<CR>`t
 nnoremap <Leader>lb :Buffers<CR>
 
 " Map to list history of files
-nnoremap <Leader>lh :History<CR>
+nnoremap <Leader>lh :FZFMru<CR>
 
 " Map to pretty print JSON files
 nmap <Leader>pp gqaj
