@@ -119,7 +119,6 @@ function! SourceVisualConf()
     set background=dark
     let g:seoul256_background = 233
     let l:apprenticeGreen = 101
-    "silent! color seoul256
     color apprentice
 
     " Define defaults for the colors
@@ -348,8 +347,8 @@ set nohlsearch
 " Edit the function when visuals need to be updated. This is done such that
 " the confs can be resourced when NVIM starts. Rerun the visual confs whenver
 " the color scheme changes
-call SourceVisualConf()
 au ColorScheme * call SourceVisualConf()
+call SourceVisualConf()
 
 " }}}
 
