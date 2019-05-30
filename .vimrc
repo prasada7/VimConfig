@@ -339,6 +339,9 @@ set ttimeoutlen=0
 set incsearch
 set nohlsearch
 
+" Set the coc next key
+let g:coc_snippet_next = "<tab>"
+
 " }}}
 
 
