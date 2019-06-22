@@ -1,3 +1,57 @@
+" Vundle and Plugins {{{
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Include fuzzy finder
+set rtp+=~/.fzf
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'itchyny/lightline.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'mattn/emmet-vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'morhetz/gruvbox'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'marcweber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ap/vim-css-color'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-repeat'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-jdaddy'
+Plugin 'junegunn/seoul256.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'valloric/matchtagalways'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'junegunn/gv.vim'
+Plugin 'alvan/vim-closetag'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'romainl/Apprentice'
+Plugin 'tpope/vim-dispatch'
+Plugin 'w0rp/ale'
+Plugin 'neoclide/coc.nvim'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'moll/vim-node'
+Plugin 'pbogut/fzf-mru.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" }}}
+
+
 " Functions {{{
 
 " A function for removing trailing white spaces
@@ -114,7 +168,7 @@ function! FullPath()
 endfunction
 
 " Function to source the visual configurations
-function! SourceVisualConf()
+function! SourceDynamicVisualConf()
     " Set the color scheme
     set background=dark
     let g:seoul256_background = 233
@@ -168,104 +222,7 @@ function! SourceVisualConf()
     execute printf('silent! highlight DiffDelete cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.del.cterm, l:gitdiff.del.fg, l:gitdiff.del.bg)
     execute printf('silent! highlight DiffText cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.text.cterm, l:gitdiff.text.fg, l:gitdiff.text.bg)
     execute printf('silent! highlight Function ctermfg=%s', l:functions)
-
-    " Set the character count marker at 80
-    set cc=+1
-
-    " Enable line count with relative line numbers
-    set nu rnu
-
-    " Display the status line
-    set laststatus=2
-
-    " Customize the status line
-    let g:lightline = {
-                \ 'active': {
-                \   'left': [ [ 'mode' ],
-                \             [ 'gitbranch', 'readonly', 'filenamebuf', 'modified' ] ]
-                \ },
-                \ 'enable': {
-                \    'statusline': 1,
-                \    'tabline': 0
-                \ },
-                \ 'component': {
-                \    'filenamebuf': '%{expand("%:h")}[%n]'
-                \ },
-                \ 'component_function': {
-                \    'gitbranch': 'fugitive#head'
-                \ }
-                \ }
-    set showtabline=2 noshowmode
-
-    " Customize the tabline
-    set tabline=%!GetLabel()
-
-    " Customize fzf
-    let g:fzf_layout = { 'window': 'enew' }
-
-    " NERDTree conf
-    let NERDTreeIgnore = ['node_modules']
-    let NERDTreeShowHidden=1
-    let NERDTreeMinimalUI=1
-
-    " Indent line conf
-    let g:indentLine_char = '▏'
-    let g:indentLine_fileTypeExclude = ['json']
 endfunction
-
-" }}}
-
-
-" Vundle and Plugins {{{
-
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Include fuzzy finder
-set rtp+=~/.fzf
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'itchyny/lightline.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'mattn/emmet-vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'morhetz/gruvbox'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'marcweber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ap/vim-css-color'
-Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-repeat'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'tpope/vim-jdaddy'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'valloric/matchtagalways'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'junegunn/gv.vim'
-Plugin 'alvan/vim-closetag'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'romainl/Apprentice'
-Plugin 'tpope/vim-dispatch'
-Plugin 'w0rp/ale'
-Plugin 'neoclide/coc.nvim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'moll/vim-node'
-Plugin 'pbogut/fzf-mru.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 
 " }}}
 
@@ -348,10 +305,53 @@ let g:coc_snippet_next = "<tab>"
 " Visual configurations {{{
 
 " Edit the function when visuals need to be updated. This is done such that
-" the confs can be resourced when NVIM starts. Rerun the visual confs whenver
+" the confs can be resourced when NVIM starts. Rerun the visual confs whenever
 " the color scheme changes
-au ColorScheme * call SourceVisualConf()
-call SourceVisualConf()
+au ColorScheme * call SourceDynamicVisualConf()
+silent! call SourceDynamicVisualConf()
+
+" Set the character count marker at 80
+set cc=+1
+
+" Enable line count with relative line numbers
+set nu rnu
+
+" Display the status line
+set laststatus=2
+
+" Customize the status line
+let g:lightline = {
+            \ 'active': {
+            \   'left': [ [ 'mode' ],
+            \             [ 'gitbranch', 'readonly', 'filenamebuf', 'modified' ] ]
+            \ },
+            \ 'enable': {
+            \    'statusline': 1,
+            \    'tabline': 0
+            \ },
+            \ 'component': {
+            \    'filenamebuf': '%{expand("%:h")}[%n]'
+            \ },
+            \ 'component_function': {
+            \    'gitbranch': 'fugitive#head'
+            \ }
+            \ }
+set showtabline=2 noshowmode
+
+" Customize the tabline
+set tabline=%!GetLabel()
+
+" Customize fzf
+let g:fzf_layout = { 'window': 'enew' }
+
+" NERDTree conf
+let NERDTreeIgnore = ['node_modules']
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
+
+" Indent line conf
+let g:indentLine_char = '▏'
+let g:indentLine_fileTypeExclude = ['json']
 
 " }}}
 
