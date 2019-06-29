@@ -44,6 +44,7 @@ Plugin 'neoclide/coc.nvim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'moll/vim-node'
 Plugin 'pbogut/fzf-mru.vim'
+Plugin 'ekalinin/Dockerfile.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
