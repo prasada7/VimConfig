@@ -45,13 +45,13 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'moll/vim-node'
 Plugin 'pbogut/fzf-mru.vim'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " }}}
-
 
 " Functions {{{
 
@@ -299,6 +299,9 @@ set nohlsearch
 
 " Set the coc next key
 let g:coc_snippet_next = "<tab>"
+
+" Ctrl p
+let g:ctrlp_show_hidden = 1
 
 " }}}
 
