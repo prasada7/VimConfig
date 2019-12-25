@@ -32,7 +32,9 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-jdaddy'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'valloric/matchtagalways'
+if has("python")
+    Plugin 'valloric/matchtagalways'
+endif
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/gv.vim'
 Plugin 'alvan/vim-closetag'
@@ -40,7 +42,9 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'romainl/Apprentice'
 Plugin 'tpope/vim-dispatch'
 Plugin 'w0rp/ale'
-Plugin 'neoclide/coc.nvim'
+if executable("node")
+    Plugin 'neoclide/coc.nvim'
+endif
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'moll/vim-node'
 Plugin 'pbogut/fzf-mru.vim'
@@ -171,6 +175,7 @@ endfunction
 " Function to source the visual configurations
 function! SourceDynamicVisualConf()
     " Set the color scheme
+    set t_Co=256
     set background=dark
     let g:seoul256_background = 233
     let l:apprenticeGreen = 101
