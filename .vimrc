@@ -492,15 +492,15 @@ nmap _sh :set ft=sh<CR>
 nmap _html :set ft=html<CR>
 nmap _py :set ft=python<CR>
 
-" Maps to disable the arrow keys
-map <LEFT> <nop>
-map <UP> <nop>
-map <RIGHT> <nop>
-map <DOWN> <nop>
-imap <LEFT> <nop>
-imap <UP> <nop>
-imap <RIGHT> <nop>
-imap <DOWN> <nop>
+" Maps to disable the arrow keys COMMENTED OUT TO NOT FREAK OUT PEOPLE :(
+" map <LEFT> <nop>
+" map <UP> <nop>
+" map <RIGHT> <nop>
+" map <DOWN> <nop>
+" imap <LEFT> <nop>
+" imap <UP> <nop>
+" imap <RIGHT> <nop>
+" imap <DOWN> <nop>
 
 " Map to change directory into the current open file
 nnoremap <Leader>cd :cd %:p:h<CR>
