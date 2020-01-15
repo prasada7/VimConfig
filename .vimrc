@@ -230,6 +230,13 @@ function! SourceDynamicVisualConf()
     execute printf('silent! highlight Function ctermfg=%s', l:functions)
 endfunction
 
+
+" Function and command for opening a terminal
+function! Term()
+    term ++rows=15
+endfunction
+command Term execute "call Term()"
+
 " }}}
 
 
