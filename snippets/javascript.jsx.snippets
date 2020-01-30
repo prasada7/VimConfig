@@ -1,46 +1,40 @@
-# Basics
+# General
 snippet conlog
-	console.log(${0:Something to log});
+	console.log(${1});
 
+# ES6
 snippet im
-	import "${0}";
-
+	import "${1}";
 snippet imf
-	import ${1:object} from "${0:location}";
-
-snippet imfa
-	import {${1:functions}} from "${2:location}";
-
-snippet constructor
-	constructor(${1:field1}, ${2:field2}) {
-		this.$1 = $1;
-		this.$2 = $2;
+	import ${1} from "${2}";
+snippet class
+	class ${1} {
+		constructor(${2}) {
+			${0}
+		}
 	}
-
+snippet method
+	${1:funcName}(${2}) {
+		${0}
+	}
 snippet function
-	/**
-	 * ${1:Description}
-	 */
-	${2:funcName}(${3}) {
+	function ${1}(${2}) {
 		${0}
 	}
-
 snippet =>
-	(${1}) => {
-		${0}
-	}
+	(${1}) => ${0}
 
 # Docs
-snippet /**
+snippet doc
 	/**
-	 * ${0:Description of the function}
+	 * ${0}
 	 */
 
 snippet param
 	@param {${1:Type}} ${2:Name} ${0:Description}
 
 snippet author
-	@author ${0:Name}
+	@author ${0}
 
 snippet created
 	@created `system("date +%Y-%m-%d")`
@@ -71,7 +65,7 @@ snippet for
 	}
 
 snippet foreach
-	foreach(${1} => {
+	foreach((${1}) => {
 		${0}
 	});
 
@@ -96,11 +90,6 @@ snippet dowhile
 	} while(${1});
 
 # MarkoJS
-snippet comp
-	<${1:component} class="${2:class}"${3}>
-		${0}
-	<$1>
-
 snippet mcond
 	<${1:if}(${2:condition})>
 		${0}
@@ -111,11 +100,8 @@ snippet melse
 		${0}
 	</else>
 
-snippet <!
-	<!-- ${1:TODO} -->
-
 # Jest
-snippet describe
+snippet desc
 	describe('${1:description}', () => {
 		${0}
 	});
@@ -136,7 +122,7 @@ snippet ae
 	});
 
 snippet expect
-	expect(${1:expected})${2}.to${3:function}(${0});
+	expect(${1:expected})${2}.to${3:function}(${4});
 
 # Graphql snippets
 snippet grreq
@@ -171,10 +157,16 @@ snippet grschema
 
 snippet grtype
 	GraphQL${0:String}
-
+# CommonJS
+snippet require
+	${1:const} ${2} = require('${0}');
+snippet closure
+	(function${1}(){
+		${0}
+	})();
 # React Js
-snippet reactComp
-	import React, { Component  } from 'react';
+snippet rcomp
+	import React, { Component } from 'react';
 
 	class ${1:Name} extends Component {
 	    render() {
@@ -185,3 +177,5 @@ snippet reactComp
 	}
 
 	export default $1;
+snippet <!
+	<!-- ${1:TODO} -->
