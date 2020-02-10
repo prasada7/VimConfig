@@ -1,3 +1,4 @@
+" Padmanaban Prasad
 " Plugins {{{
 " Fetch Plug if it doenst already exist
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -49,8 +50,6 @@ Plug 'kien/ctrlp.vim'
 call plug#end()
 
 " }}}
-
-
 " Functions {{{
 
 " A function for removing trailing white spaces
@@ -232,8 +231,6 @@ endfunction
 command! Term execute "call Term()"
 
 " }}}
-
-
 " Functionality {{{
 
 " Remove the introductory message
@@ -309,11 +306,11 @@ let g:coc_snippet_next = "<tab>"
 " Ctrl p
 let g:ctrlp_show_hidden = 1
 
+" Lazy redraw
+set lazyredraw
+
 " }}}
-
-
 " Visual configurations {{{
-
 " Edit the function when visuals need to be updated. This is done such that
 " the confs can be resourced when NVIM starts. Rerun the visual confs whenever
 " the color scheme changes
@@ -364,8 +361,6 @@ let g:indentLine_char = '▏'
 let g:indentLine_fileTypeExclude = ['json']
 
 " }}}
-
-
 " Custom Mappings {{{
 " NORMAL MODE {{{
 
@@ -545,8 +540,6 @@ cnoreabbrev git !git
 
 " }}}
 " }}}
-
-
 " NeoVim Configurations {{{
 if has("nvim")
 
@@ -572,4 +565,3 @@ if has("nvim")
 
     endif
 "}}}
-
