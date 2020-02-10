@@ -5,5 +5,5 @@
 !.gitignore
 !snippets/
 !.vimrc
-!installVundle.sh
+!install.sh
 !README.md

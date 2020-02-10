@@ -1,61 +1,51 @@
-" Vundle and Plugins {{{
+" Plugins {{{
+" Fetch Plug if it doenst already exist
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Include fuzzy finder
-set rtp+=~/.fzf
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'itchyny/lightline.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'mattn/emmet-vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'morhetz/gruvbox'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'marcweber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ap/vim-css-color'
-Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-repeat'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'tpope/vim-jdaddy'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'Yggdroot/indentLine'
+" Plug
+call plug#begin('~/.vim/bundle')
+Plug 'VundleVim/Vundle.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'itchyny/lightline.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'mattn/emmet-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'morhetz/gruvbox'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'marcweber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'ap/vim-css-color'
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-repeat'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-jdaddy'
+Plug 'junegunn/seoul256.vim'
+Plug 'Yggdroot/indentLine'
 if has("python")
-    Plugin 'valloric/matchtagalways'
+    Plug 'valloric/matchtagalways'
 endif
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'junegunn/gv.vim'
-Plugin 'alvan/vim-closetag'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'romainl/Apprentice'
-Plugin 'tpope/vim-dispatch'
-Plugin 'w0rp/ale'
+Plug 'scrooloose/nerdcommenter'
+Plug 'junegunn/gv.vim'
+Plug 'alvan/vim-closetag'
+Plug 'jiangmiao/auto-pairs'
+Plug 'romainl/Apprentice'
+Plug 'tpope/vim-dispatch'
+Plug 'w0rp/ale'
 if executable("node")
-    Plugin 'neoclide/coc.nvim'
+    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 endif
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'moll/vim-node'
-Plugin 'pbogut/fzf-mru.vim'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'kien/ctrlp.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'moll/vim-node'
+Plug 'pbogut/fzf-mru.vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'kien/ctrlp.vim'
+call plug#end()
 
 " }}}
+
 
 " Functions {{{
 
@@ -235,7 +225,7 @@ endfunction
 function! Term()
     term ++rows=15
 endfunction
-command Term execute "call Term()"
+command! Term execute "call Term()"
 
 " }}}
 
