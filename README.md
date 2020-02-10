@@ -1,30 +1,42 @@
-# Vim configuration with Vundle
+# Vim configuration with Vim Plug
 ## Instructions for Installation
 1. Clone this repository into the .vim directory<br>
-<code>git clone https://github.com/prasada7/VimConfig.git</code>
-2. Execute the installVundle.sh script to complete the setup<br>
-> This file clones the Vundle repoitory from github into the ~/.vim/bundledir
-ectory, creates a sym link to the .vimrc present in this repository from the
-~ directory, and runs :PluginInstall to install all the specified plugins<br>
+<code>git clone https://github.com/prasada7/VimConfig.git ~/.vim</code>
+2. Execute the install.sh script to complete the setup<br>
+> This script creates necessary directories and backs up any old vim config file if it exists and triggers the installation process with Vim Plug <br>
 
 ## Plugins included
-1. Vundle [VundleVim/Vundle.vim]
-2. NERDTree [scrooloose/nerdtree]
-3. Lightline [itchyny/lightline.vim]
-4. Multicursors  [terryma/vim-multiple-cursors]
-5. Emmet [mattn/emmet-vim]
-6. Git Gutter [airblade/vim-gitgutter]
-7. Gruvbox [morhetz/gruvbox]
-8. (React) Java Script Syntax [pangloss/vim-javascript] and [mxw/vim-jsx]
-9. SnipMate [garbas/vim-snipmate]
-10. Surround [tpope/vim-surround]
-11. Git Fugitive [tpope/vim-fugitive]
-12. Css color [ap/vim-css-color]
-13. Supertab [ervandew/supertab]
-14. Repeat [tpope/vim-repeat]
-15. FZF [junegunn/fzf]
-> Use the text within the brackets to go to the plugins respective git repo<br>
-For example, Repeat's git repo is https://github.com/tpope/vim-repeat
+1. [NERDTree](https://github.com/scrooloose/nerdtree)
+2. [Lightline](https://github.com/itchyny/lightline.vim)
+3. [Multicursors ](https://github.com/terryma/vim-multiple-cursors)
+4. [Emmet](https://github.com/mattn/emmet-vim)
+5. [Git Gutter](https://github.com/airblade/vim-gitgutter)
+6. [Gruvbox](https://github.com/morhetz/gruvbox)
+7. [(React) Java Script Syntax](https://github.com/pangloss/vim-javascript)
+8. [SnipMate](https://github.com/garbas/vim-snipmate)
+9. [Surround](https://github.com/tpope/vim-surround)
+10. [Git Fugitive](https://github.com/tpope/vim-fugitive)
+11. [Css color](https://github.com/ap/vim-css-color)
+12. [Supertab](https://github.com/ervandew/supertab)
+13. [Repeat](https://github.com/tpope/vim-repeat)
+14. [FZF](https://github.com/junegunn/fzf)
+15. [JSON manipulation](https://github.com/tpope/vim-jdaddy)
+16. [Seoul256 colorscheme](https://github.com/junegunn/seoul256.vim)
+17. [Indentation lines](https://github.com/Yggdroot/indentLine)
+18. [Match tags](https://github.com/valloric/matchtagalways)
+19. [Commenting helper](https://github.com/scrooloose/nerdcommenter)
+20. [Git commit browser](https://github.com/junegunn/gv.vim)
+21. [Auto close tags](https://github.com/alvan/vim-closetag)
+22. [Brackets completion/deleting and so on](https://github.com/jiangmiao/auto-pairs)
+23. [Apprentice colorscheme (default)](https://github.com/romainl/Apprentice)
+24. [Async build and test dispatcher](https://github.com/tpope/vim-dispatch)
+25. [Async linter](https://github.com/w0rp/ale)
+26. [Intellisense for Vim8](https://github.com/neoclide/coc.nvim)
+27. [Trailing whitespace highlighter](https://github.com/ntpeters/vim-better-whitespace)
+28. [Node environment helper for Vim](https://github.com/moll/vim-node)
+29. [Most recently used files](https://github.com/pbogut/fzf-mru.vim)
+30. [Dockerfile syntax](https://github.com/ekalinin/Dockerfile.vim)
+31. [Ctrl P for environments where FZF cant be installed](https://github.com/kien/ctrlp.vim)
 
 ## Features included in this configuration
 * Trailing whitespaces are always highlighted
@@ -51,15 +63,7 @@ mode)
 * Ctrl + A to highlight the entire file
 * \\[gs|gb|gd] mapped to Gstatus, Gblame, and Gdiff respectively. '\' is the
 default Leader character in Vim
+* And more... Please take a look at the config file :)
 > For more information on NERDTree visit this
 [link](https://github.com/scrooloose/nerdtree)
-
-## Making use of the Vundle Plugin installer
-* To search for a plugin, use <code>:BundleSearch</code>
-* To install a plugin, simply add <code>Plugin '[Name]'</code> to the .vimrc
-and call <code>:PluginInstall</code> in vim<br>
-* For more information please visit the
-[official github page](https://github.com/VundleVim/Vundle.vim) for Vundle
->*TIP: Simply copy the line that resulted from the <code>:BundleSearch</code>*
-  *into the .vimrc*<br>
 

@@ -8,7 +8,6 @@ endif
 
 " Plug
 call plug#begin('~/.vim/bundle')
-Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
