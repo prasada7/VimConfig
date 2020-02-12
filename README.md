@@ -37,6 +37,7 @@
 29. [Most recently used files](https://github.com/pbogut/fzf-mru.vim)
 30. [Dockerfile syntax](https://github.com/ekalinin/Dockerfile.vim)
 31. [Ctrl P for environments where FZF cant be installed](https://github.com/kien/ctrlp.vim)
+32. [Haskel for vim](https://github.com/neovimhaskell/haskell-vim)
 
 ## Features included in this configuration
 * Trailing whitespaces are always highlighted

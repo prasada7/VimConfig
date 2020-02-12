@@ -47,6 +47,7 @@ Plug 'moll/vim-node'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'neovimhaskell/haskell-vim'
 call plug#end()
 
 " }}}
