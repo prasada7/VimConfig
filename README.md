@@ -2,8 +2,8 @@
 ## Instructions for Installation
 1. Clone this repository into the .vim directory<br>
 <code>git clone https://github.com/prasada7/VimConfig.git ~/.vim</code>
-2. Execute the install.sh script to complete the setup<br>
-> This script creates necessary directories and backs up any old vim config file if it exists and triggers the installation process with Vim Plug <br>
+2. execute the install.sh script to complete the setup<br>
+> this script creates necessary directories and backs up any old vim config file if it exists and triggers the installation process with vim plug <br>
 
 ## Plugins included
 1. [NERDTree](https://github.com/scrooloose/nerdtree)
@@ -46,7 +46,6 @@
 * Line numbers are enabled by default (could be disabled by entering
 <code>:set nonu</code>)
 * Mouse support can be togged using F3
-* Ctrl+x (Visual mode cut) and Ctrl+v (insert mode paste)
 * Use F5 to save a file
 * Use q in normal mode to close a window (force quit is not remapped)
 * Use F4 to toggle the NERDTree Plugin

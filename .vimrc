@@ -252,7 +252,9 @@ set showcmd
 set directory=~/.vim/.swaps//
 
 " Set folding method for vim files
-autocmd FileType vim setlocal foldmethod=marker
+augroup VimFold
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
 
 " Change the trigger key for Emmet to E instead of Y
 let g:user_emmet_leader_key="<C-e>"
@@ -267,7 +269,9 @@ let g:user_emmet_settings = {
 \}
 
 " Use jsx syntax for marko files and mjs files
-autocmd BufNewFile,BufRead *.\(marko\|mjs\) set filetype=javascript.jsx
+augroup MarkoJSFileType
+    autocmd BufNewFile,BufRead *.\(marko\|mjs\) set filetype=javascript.jsx
+augroup END
 
 " Map ZZ to lower case to prevent unintentional save and quit
 nnoremap ZZ zz
@@ -318,10 +322,10 @@ au ColorScheme * call SourceDynamicVisualConf()
 silent! call SourceDynamicVisualConf()
 
 " Set the character count marker at 80
-set cc=+1
+set colorcolumn=+1
 
 " Enable line count with relative line numbers
-set nu rnu
+set number relativenumber
 
 " Display the status line
 set laststatus=2
@@ -550,13 +554,15 @@ if has("nvim")
     "" Map Exc to return to normal mode in the terminal
     tnoremap <Esc> <C-\><C-n>
     "" Remove linenumbers on terminal open
-    autocmd TermOpen * setlocal nonu nornu
-    "" Change the mapping of esc when fzf in spawned
-    autocmd FileType fzf tmap <ESC> <C-c>
-    autocmd BufLeave *
-        \ if &ft == 'fzf' |
-            \ tnoremap <Esc> <C-\><C-n> |
-        \ endif
+    augroup NVIMSPECIFIC
+        autocmd TermOpen * setlocal nonu nornu
+        "" Change the mapping of esc when fzf in spawned
+        autocmd FileType fzf tmap <ESC> <C-c>
+        autocmd BufLeave *
+                    \ if &ft == 'fzf' |
+                    \ tnoremap <Esc> <C-\><C-n> |
+                    \ endif
+    augroup END
     " }}}
 
     " Shortcuts {{{
