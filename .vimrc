@@ -229,7 +229,9 @@ endfunction
 function! Term()
     term ++rows=15
 endfunction
-command! Term execute "call Term()"
+if has("term")
+    command! Term execute "call Term()"
+endif
 
 " }}}
 " Functionality {{{
