@@ -316,6 +316,9 @@ let g:ctrlp_show_hidden = 1
 " Lazy redraw
 set lazyredraw
 
+" Use legacy parser for snipmate extension
+let g:snipMate = { 'snippet_version' : 1 }
+
 " }}}
 " Visual configurations {{{
 " Edit the function when visuals need to be updated. This is done such that
