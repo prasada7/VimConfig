@@ -46,7 +46,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'moll/vim-node'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'kien/ctrlp.vim'
 Plug 'neovimhaskell/haskell-vim'
 call plug#end()
 
@@ -318,6 +317,24 @@ set lazyredraw
 
 " Use legacy parser for snipmate extension
 let g:snipMate = { 'snippet_version' : 1 }
+
+" Disable ALE on insert (Causes multi cursor to lag)
+function! Multiple_cursors_before()
+    if exists(":ALEDisable")==2
+        exe 'ALEDisable'
+    endif
+    if exists(":CocDisable")==2
+        exe 'CocDisable'
+    endif
+endfunction
+function! Multiple_cursors_after()
+    if exists(":ALEEnable")==2
+        exe 'ALEEnable'
+    endif
+    if exists(":CocEnable")==2
+        exe 'CocEnable'
+    endif
+endfunction
 
 " }}}
 " Visual configurations {{{
