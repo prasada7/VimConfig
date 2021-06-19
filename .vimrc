@@ -336,6 +336,10 @@ function! Multiple_cursors_after()
     endif
 endfunction
 
+" Change shortcut to move through hunks
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
 " }}}
 " Visual configurations {{{
 " Edit the function when visuals need to be updated. This is done such that
