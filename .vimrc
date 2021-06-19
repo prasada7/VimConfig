@@ -47,6 +47,11 @@ Plug 'moll/vim-node'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'neovimhaskell/haskell-vim'
+
+" Neo vim plugins
+if has('nvim')
+    Plug 'vimlab/split-term.vim'
+endif
 call plug#end()
 
 " }}}
@@ -351,6 +356,9 @@ silent! call SourceDynamicVisualConf()
 " Set the character count marker at 80
 set colorcolumn=+1
 
+" Enable line count with relative line numbers
+set number
+
 " Display the status line
 set laststatus=2
 
@@ -573,24 +581,26 @@ if has("nvim")
 
     " Functionality {{{
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    "" Change the path to the vimrc
-    let $MYVIMRC = '~/.vimrc'
-    "" Map Exc to return to normal mode in the terminal
+
+    " Change the path to the vimrc
+    let $MYVIMRC = '~/.vim/.vimrc'
+
+    " Map Exc to return to normal mode in the terminal
     tnoremap <Esc> <C-\><C-n>
-    "" Remove linenumbers on terminal open
+
+    " Override the default terminal command to use extension
+    cnoreabbrev term Term
+
+    " Remove linenumbers on terminal open
     augroup NVIMSPECIFIC
-        autocmd TermOpen * setlocal nonu nornu
-        "" Change the mapping of esc when fzf in spawned
+        autocmd TermOpen * setlocal nonu
+        " Change the mapping of esc when fzf in spawned
         autocmd FileType fzf tmap <ESC> <C-c>
         autocmd BufLeave *
                     \ if &ft == 'fzf' |
                     \ tnoremap <Esc> <C-\><C-n> |
                     \ endif
     augroup END
-    " }}}
-
-    " Shortcuts {{{
-    nnoremap <C-SPACE> :sp term://bash<CR> \| <C-W>10_ggA
     " }}}
 
     endif
