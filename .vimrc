@@ -347,9 +347,6 @@ silent! call SourceDynamicVisualConf()
 " Set the character count marker at 80
 set colorcolumn=+1
 
-" Enable line count with relative line numbers
-set number relativenumber
-
 " Display the status line
 set laststatus=2
 
@@ -395,7 +392,7 @@ let g:indentLine_fileTypeExclude = ['json']
 let mapleader = ","
 
 " Map the Nerd tree toggle to F4
-nnoremap <F4> :NERDTreeToggle \| setlocal rnu<CR>
+nnoremap <F4> :NERDTreeToggle \| setlocal number<CR>
 
 " Map to list all custom mappings
 nnoremap <Leader>cm :Maps<CR> ~/.vimrc
