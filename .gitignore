@@ -2,8 +2,10 @@
 # and the .gitignore
 /*
 /*/
+!autoload/
 !.gitignore
 !snippets/
 !.vimrc
 !install.sh
 !README.md
+autoload/plug.vim

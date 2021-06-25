@@ -233,7 +233,7 @@ endfunction
 function! Term()
     term ++rows=15
 endfunction
-if has("term")
+if has("terminal")
     command! Term execute "call Term()"
 endif
 
@@ -479,7 +479,7 @@ nnoremap <Leader>cf :bw<CR>
 nnoremap <Leader>nt :tabe<CR>
 
 " Map to locate the current file in NERDTree
-nmap <Leader>ff :NERDTreeFind \| setlocal rnu<CR>
+nmap <Leader>ff :NERDTreeFind \| setlocal number<CR>
 
 " Map to open and source the vimrc file
 nmap <Leader>vc :e $MYVIMRC<CR>
