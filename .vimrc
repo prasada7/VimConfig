@@ -9,7 +9,7 @@ endif
 
 " Plug
 call plug#begin('~/.vim/bundle')
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim'
@@ -377,7 +377,8 @@ let g:lightline = {
             \ },
             \ 'component_function': {
             \    'gitbranch': 'fugitive#head'
-            \ }
+            \ },
+            \ 'colorscheme': 'apprentice'
             \ }
 set showtabline=2 noshowmode
 
