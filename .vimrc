@@ -47,6 +47,7 @@ Plug 'moll/vim-node'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 " Neo vim plugins
 if has('nvim')
