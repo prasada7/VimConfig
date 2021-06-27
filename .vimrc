@@ -161,13 +161,7 @@ endfunction
 " Function to print and save the full path of the current buffer
 function! FullPath()
     let fullPath = expand("%:p")
-
-    " Copy to the clipboard if it exists
-    if &clipboard != ""
-        let @+ = fullPath
-        let @* = fullPath
-    endif
-
+    execute CopyToClipboard(fullPath)
     echo expand("%:p")
 endfunction
 
@@ -237,6 +231,27 @@ endfunction
 if has("terminal")
     command! Term execute "call Term()"
 endif
+
+function! CopyToClipboard(...)
+    let cursorpos = getcurpos()[1:] " Get the current cursor position to restore it right after
+    let textToCopy = get(a:, 1, '')
+    let isVisual = get(a:, 2, 0)
+
+    if isVisual && (visualmode() == 'V' || visualmode() == 'v' || visualmode() == "\<CTRL-v>")
+        silent normal! gv"yy
+        let textToCopy = getreg('y')
+    endif
+    if executable("clip.exe")
+        execute system("echo " . "'" . textToCopy . "' | clip.exe")
+    endif
+
+    " Add the text to the appropriate registers
+    if &clipboard != ""
+        execute setreg("*", textToCopy)
+        execute setreg("+", textToCopy)
+    endif
+    call cursor(cursorpos) " setreg() seems to jump the cursor up to the top for some reason
+endfunction
 
 " }}}
 " Functionality {{{
