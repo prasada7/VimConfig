@@ -48,6 +48,7 @@ Plug 'pbogut/fzf-mru.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+Plug 'jwalton512/vim-blade'
 
 " Neo vim plugins
 if has('nvim')
@@ -135,8 +136,8 @@ function! GetSnippets()
     return snippetsFile
 endfunction
 
-" Function to list all snippets for the current filetype in the buffer
-function! ListSnippets()
+" Function to view all snippets for the current filetype in the buffer
+function! ViewSnippets()
     let snippetsLocation = GetSnippets()
     let listOfSnippets = system("echo ':q! to quit' && cat " . snippetsLocation . " 2>/dev/null")
     vnew | setlocal ft=snippets | put=listOfSnippets
@@ -337,7 +338,10 @@ let g:ctrlp_show_hidden = 1
 set lazyredraw
 
 " Use legacy parser for snipmate extension
-let g:snipMate = { 'snippet_version' : 1 }
+let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['blade'] = 'blade,javascript.jsx,php'
+let g:snipMate.snippet_version = 1
 
 " Disable ALE on insert (Causes multi cursor to lag)
 function! Multiple_cursors_before()
