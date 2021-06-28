@@ -8,4 +8,4 @@
 !.vimrc
 !install.sh
 !README.md
-autoload/plug.vim
+autoload/plug*
