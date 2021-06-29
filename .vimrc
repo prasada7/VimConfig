@@ -49,6 +49,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'jwalton512/vim-blade'
+Plug 'ryanoasis/vim-devicons'
 
 " Neo vim plugins
 if has('nvim')
@@ -256,6 +257,8 @@ endfunction
 
 " }}}
 " Functionality {{{
+" Encoding
+set encoding=UTF-8
 
 " Remove the introductory message
 set shortmess=I
