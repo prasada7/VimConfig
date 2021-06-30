@@ -99,7 +99,7 @@ function! GetLabel()
         let s .= ' ' . index . '| ' . (bufname != ''?  nameToDisplay : 'New File' )
 
         " Add the modifed symbol if the buffer has been modified
-        let s .= (getbufvar(index, '&mod') == 1 ? '+ ' : ' ')
+        let s .= (getbufvar(bufname, '&mod') == 1 ? '+ ' : ' ')
 
         let index += 1
     endwhile
