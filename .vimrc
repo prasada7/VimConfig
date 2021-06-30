@@ -368,6 +368,9 @@ endfunction
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
 
+" Ale configurations
+let g:ale_php_phpcs_standard = 'PSR2'
+
 " }}}
 " Visual configurations {{{
 " Edit the function when visuals need to be updated. This is done such that
