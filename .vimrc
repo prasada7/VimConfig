@@ -49,7 +49,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'jwalton512/vim-blade'
-Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons' | Plug 'bryanmylee/vim-colorscheme-icons'
 
 " Neo vim plugins
 if has('nvim')
