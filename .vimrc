@@ -244,7 +244,7 @@ function! CopyToClipboard(...)
         let textToCopy = getreg('y')
     endif
     if executable("clip.exe")
-        execute system("echo " . "'" . textToCopy . "' | clip.exe")
+        execute system("printf " . "'" . textToCopy . "' | clip.exe")
     endif
 
     " Add the text to the appropriate registers
