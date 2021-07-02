@@ -45,7 +45,6 @@ nnoremap <Leader>e $
 
 " Shortcut to replace the word the cursor is on
 nnoremap <C-x> ciw
-nnoremap <C-d> viw
 
 " CTRL-A for select all
 nnoremap <C-a> ggvG$
@@ -53,10 +52,6 @@ nnoremap <C-a> ggvG$
 " Use F3 to toggle mouse control
 command! ToggleMouse execute "call ToggleMouse()"
 nnoremap <F3> :ToggleMouse<CR>
-
-" Add maps to simplify global search
-nnoremap <C-F> :vim //j **/*<left><left><left><left><left><left><left>
-nnoremap <F6> :tabe \| cw<CR><C-w>10_
 
 " Fugitive git + fzf shortcuts
 nnoremap <Leader>gs :GFiles?<CR>
@@ -67,9 +62,6 @@ nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gw :Gwrite<CR>:GitGutter<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gf :GFiles<CR>
-
-" Use <F7> to stop highlighting searchs but keep highlighting trailing
-nnoremap <F7> mt:noh \| silent! /\s\+$<CR>`t
 
 " Map to list all buffers
 nnoremap <Leader>lb :Buffers<CR>
@@ -141,9 +133,6 @@ nnoremap <Leader>cd :cd %:p:h<CR>
 
 " Map to run the current file in shell
 nnoremap <Leader>rf :!%:p<CR>
-
-" Map to run tasks asynchrously and close
-nnoremap <Leader>as :Dispatch
 
 " }}}
 

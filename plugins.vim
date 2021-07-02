@@ -34,7 +34,6 @@ Plug 'junegunn/gv.vim'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'romainl/Apprentice'
-Plug 'tpope/vim-dispatch'
 Plug 'w0rp/ale'
 if executable("node")
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
