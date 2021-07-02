@@ -2,8 +2,8 @@
 " Padmanaban Prasad
 " Source necessary config files {{{
 runtime ~/.vim plugins.vim
-runtime ~/.vim functions.vim
 runtime ~/.vim general.vim
+runtime ~/.vim functions.vim
 " }}}
 " Custom Mappings {{{
 

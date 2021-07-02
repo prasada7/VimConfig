@@ -80,8 +80,16 @@ set showtabline=2 noshowmode
 " Customize the tabline
 set tabline=%!GetLabel()
 
-" Edit the function when visuals need to be updated. This is done such that
-" the confs can be resourced when NVIM starts. Rerun the visual confs whenever
-" the color scheme changes
-au ColorScheme * call SourceDynamicVisualConf()
-silent! call SourceDynamicVisualConf()
+" Set the color scheme
+set t_Co=256
+set termguicolors
+let g:colors_name = 'apprentice' " UPDATE COLORSCHEME NAME HERE
+
+if g:colors_name == 'apprentice'
+    color apprentice | color apprentice_ext
+elseif g:colors_name == 'seoul256'
+    let g:seoul256_background = 233
+    color seoul256
+    set background=dark
+    silent! highlight LineNr ctermbg=233 guibg=#121212
+endif

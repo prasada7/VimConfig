@@ -46,6 +46,7 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'jwalton512/vim-blade'
 Plug 'ryanoasis/vim-devicons' | Plug 'bryanmylee/vim-colorscheme-icons'
+Plug 'arcticicestudio/nord-vim'
 
 " Neo vim plugins
 if has('nvim')
@@ -115,6 +116,7 @@ nmap [h <Plug>(GitGutterPrevHunk)
 let g:ale_php_phpcs_standard = 'PSR2'
 
 " Customize the status line
+" NOTE: Change colorscheme if supported by lightline
 let g:lightline = {
             \ 'active': {
             \   'left': [ [ 'mode' ],

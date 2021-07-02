@@ -105,64 +105,6 @@ function FullPath()
     echo expand("%:p")
 endfunction
 
-" Custom visual configuarations
-function SourceDynamicVisualConf()
-    " Set the color scheme
-    set t_Co=256
-    set background=dark
-    let g:seoul256_background = 233
-    let l:apprenticeGreen = 101
-    color apprentice
-
-    " Define defaults for the colors
-    let l:background = 233                               " Background color
-    let l:numberLinebg = 233                             " Line number background color
-    let l:currentLinefg = ''                             " Current line number foreground color
-    let l:searchbg = ''                                  " Search results highlight color
-    let l:trailingbg = ''                                " Trailing spaces highlight color
-    let l:currentTabLinebg = ''                          " Active tab background color
-    let l:visual = { 'cterm':  '', 'fg': '', 'bg': '' }  " Visual highlight colors
-    let l:colorcolbg = 234                               " 80th col highlight color
-    let l:gitdiff = {
-        \ 'add': { 'cterm':  'none', 'fg': 'none', 'bg': 22 },
-        \ 'del': { 'cterm':  'none', 'fg': 'none', 'bg': 95 },
-        \ 'change': { 'cterm':  'none', 'fg': 'none', 'bg': 236 },
-        \ 'text': { 'cterm':  'bold', 'fg': 'none', 'bg': 52 }
-    \ }
-    let l:functions = ''
-
-    " Color scheme specific styles
-    if g:colors_name == 'apprentice'
-
-        let l:currentLinefg = l:apprenticeGreen
-        let l:searchbg = l:apprenticeGreen
-        let l:trailingbg = l:apprenticeGreen
-        let l:visual = { 'bg': 23, 'fg': 'none','cterm': 'none' }
-        let l:functions = 3
-
-    elseif g:colors_name == 'seoul256'
-
-        let l:currentTabLinebg = g:seoul256_background
-        let l:numberLinebg = 234
-
-    endif
-
-    " Set the background and foreground configs
-    execute printf('silent! highlight Normal ctermbg=%s', l:background)
-    execute printf('silent! highlight LineNr ctermbg=%s', l:numberLinebg)
-    execute printf('silent! highlight CursorLineNr ctermfg=%s', l:currentLinefg)
-    execute printf('silent! highlight ExtraWhitespace ctermbg=%s', l:trailingbg)
-    execute printf('silent! highlight Search ctermbg=%s', l:searchbg)
-    execute printf('silent! highlight TablineSel ctermbg=%s', l:currentTabLinebg)
-    execute printf('silent! highlight ColorColumn ctermbg=%s', l:colorcolbg)
-    execute printf('silent! highlight Visual cterm=%s ctermfg=%s ctermbg=%s', l:visual.cterm, l:visual.fg, l:visual.bg)
-    execute printf('silent! highlight DiffAdd cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.add.cterm, l:gitdiff.add.fg, l:gitdiff.add.bg)
-    execute printf('silent! highlight DiffChange cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.change.cterm, l:gitdiff.change.fg, l:gitdiff.change.bg)
-    execute printf('silent! highlight DiffDelete cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.del.cterm, l:gitdiff.del.fg, l:gitdiff.del.bg)
-    execute printf('silent! highlight DiffText cterm=%s ctermfg=%s ctermbg=%s', l:gitdiff.text.cterm, l:gitdiff.text.fg, l:gitdiff.text.bg)
-    execute printf('silent! highlight Function ctermfg=%s', l:functions)
-endfunction
-
 " Terminal with set height
 function Term()
     term ++rows=15
