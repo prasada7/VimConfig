@@ -6,6 +6,9 @@
 !.gitignore
 !snippets/
 !.vimrc
+!functions.vim
+!plugins.vim
+!general.vim
 !install.sh
 !README.md
 autoload/plug*
