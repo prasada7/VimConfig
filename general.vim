@@ -92,4 +92,6 @@ elseif g:colors_name == 'seoul256'
     color seoul256
     set background=dark
     silent! highlight LineNr ctermbg=233 guibg=#121212
+else
+    execute "color" . " " . g:colors_name
 endif
