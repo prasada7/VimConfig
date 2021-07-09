@@ -1,15 +1,15 @@
-# Ignore everything except the install script, the .vimrc, the markdown file
-# and the .gitignore
+# Ignore everything except for a explicitly specified files
 /*
 /*/
-!autoload/
-!colors/
 !.gitignore
-!snippets/
 !.vimrc
+!README.md
+!autoload/
+!coc-settings.json
+!colors/
 !functions.vim
-!plugins.vim
 !general.vim
 !install.sh
-!README.md
+!plugins.vim
+!snippets/
 autoload/plug*
