@@ -81,7 +81,7 @@ set showtabline=2 noshowmode
 set tabline=%!GetLabel()
 
 " Terminal window size
-if has('term')
+if has('terminal')
     set termwinsize=15x0
 endif
 
