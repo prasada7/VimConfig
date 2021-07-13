@@ -80,6 +80,11 @@ set showtabline=2 noshowmode
 " Customize the tabline
 set tabline=%!GetLabel()
 
+" Terminal window size
+if has('term')
+    set termwinsize=15x0
+endif
+
 " Set the color scheme
 set t_Co=256
 set termguicolors
