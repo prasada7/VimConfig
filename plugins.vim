@@ -136,7 +136,7 @@ let g:lightline = {
             \ }
 
 " Customize fzf
-let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': 'new' }
 
 " NERDTree conf
 let NERDTreeIgnore = ['node_modules']
