@@ -26,47 +26,53 @@ let s:toggle_term_height = get(g:, "toggle_term_height", 15)
 
 " Toggle Term
 function s:Toggle()
-    let l:buf_info = getbufinfo(s:term_name)
     let l:toggle_nerd_tree = 0
-    let l:prev_position = getcurpos()
-
-    if exists("g:NERDTree") && g:NERDTree.IsOpen()
-        execute "NERDTreeToggle"
-        let l:toggle_nerd_tree = 1
-    endif
+    let l:term_hidden = s:IsHidden()
 
     if !bufexists(s:term_name)
-        botright call term_start(&shell, {"term_name": s:term_name, "term_finish": "close", "term_kill": "kill"})
-    elseif l:buf_info[0].hidden
-        botright new
+        call s:GoToLastWindow()
+        rightbelow call term_start(&shell, {"term_name": s:term_name, "term_finish": "close", "term_kill": "kill"})
+    elseif l:term_hidden
+        " Position the terminal right below the very last window
+        call s:GoToLastWindow()
+        rightbelow new
         execute "resize " . s:toggle_term_height
         execute "buffer " . bufnr(s:term_name)
-        silent normal A
-    elseif !l:buf_info[0].hidden
+
+        " Make sure we do not get any errors when trying to go to insert mode
+        if mode() == 'n'
+            silent normal A
+        endif
+    elseif !l:term_hidden
         call s:Focus()
         wincmd N | hide
-        call setpos('.', l:prev_position)
     endif
-
-    if exists("g:NERDTree") && l:toggle_nerd_tree == 1
-        execute "NERDTreeToggle"
-    endif
-
-    call s:Focus()
 endfunction
 
+" Move cursor to the toggle terminal's buffer
 function s:Focus()
     let l:winid = bufwinid(s:term_name)
-
     if l:winid != -1
         execute "call win_gotoid(" . l:winid . ")"
     endif
 endfunction
 
+function s:GoToLastWindow()
+    let l:last_win_id = win_getid(winnr('$'))
+    execute "call win_gotoid(" . l:last_win_id . ")"
+endfunction
 
-if !exists(":Toggleterm")
-  command Toggleterm  :call s:Toggle()
-endif
+function s:IsHidden()
+    let l:currentTab = tabpagenr()
+
+    for l:bId in tabpagebuflist(currentTab)
+        if bufname(l:bId) == s:term_name
+            return 0
+        endif
+    endfor
+
+    return 1
+endfunction
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
