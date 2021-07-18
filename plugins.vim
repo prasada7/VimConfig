@@ -47,6 +47,7 @@ Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'jwalton512/vim-blade'
 Plug 'ryanoasis/vim-devicons' | Plug 'bryanmylee/vim-colorscheme-icons'
 Plug 'arcticicestudio/nord-vim'
+Plug 'prasada7/toggleterm.vim'
 
 " Neo vim plugins
 if has('nvim')
