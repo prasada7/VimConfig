@@ -85,6 +85,8 @@ if has('terminal')
     set termwinsize=15x0
 endif
 
+set runtimepath+=~/.vim/plugin/
+
 " Set the color scheme
 set t_Co=256
 set termguicolors

@@ -10,6 +10,7 @@
 !functions.vim
 !general.vim
 !install.sh
+!plugin/
 !plugins.vim
 !snippets/
 autoload/plug*
