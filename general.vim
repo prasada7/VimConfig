@@ -27,6 +27,8 @@ set encoding=UTF-8
 
 set modeline
 
+set backspace=indent,eol,start
+
 " Remove the introductory message
 set shortmess=I
 
@@ -87,10 +89,12 @@ endif
 
 set runtimepath+=~/.vim/plugin/
 
+set clipboard="unnamed"
+
 " Set the color scheme
 set t_Co=256
 set termguicolors
-let g:colors_name = 'apprentice' " UPDATE COLORSCHEME NAME HERE
+let g:colors_name = 'nord' " UPDATE COLORSCHEME NAME HERE
 
 if g:colors_name == 'apprentice'
     color apprentice | color apprentice_ext

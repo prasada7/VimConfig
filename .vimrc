@@ -4,6 +4,8 @@
 runtime ~/.vim plugins.vim
 runtime ~/.vim general.vim
 runtime ~/.vim functions.vim
+runtime ~/.vim cocconfig.vim
+
 " }}}
 " Custom Mappings {{{
 

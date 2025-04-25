@@ -6,6 +6,7 @@
 !README.md
 !autoload/
 !coc-settings.json
+!cocconfig.vim
 !colors/
 !functions.vim
 !general.vim

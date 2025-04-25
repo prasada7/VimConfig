@@ -8,22 +8,18 @@ endif
 call plug#begin('~/.vim/bundle')
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'itchyny/lightline.vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 Plug 'mattn/emmet-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'morhetz/gruvbox'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'ap/vim-css-color'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-jdaddy'
 Plug 'junegunn/seoul256.vim'
 Plug 'Yggdroot/indentLine'
 if has("python")
@@ -41,13 +37,11 @@ endif
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'moll/vim-node'
 Plug 'pbogut/fzf-mru.vim'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'neovimhaskell/haskell-vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
-Plug 'jwalton512/vim-blade'
 Plug 'ryanoasis/vim-devicons' | Plug 'bryanmylee/vim-colorscheme-icons'
 Plug 'arcticicestudio/nord-vim'
 Plug 'prasada7/toggleterm.vim'
+Plug 'sheerun/vim-polyglot'
 
 " Neo vim plugins
 if has('nvim')
@@ -85,11 +79,13 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.marko,*.blade.php'
 " Set the coc next key
 let g:coc_snippet_next = "<tab>"
 
+" Snipmate configuration
 " Use legacy parser for snipmate extension
 let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['blade'] = 'blade,javascript.jsx,php'
 let g:snipMate.snippet_version = 1
+imap <C-J> <Plug>snipMateNextOrTrigger
 
 " Disable ALE on insert (Causes multi cursor to lag)
 function! Multiple_cursors_before()
@@ -133,7 +129,7 @@ let g:lightline = {
             \ 'component_function': {
             \    'gitbranch': 'fugitive#head'
             \ },
-            \ 'colorscheme': 'apprentice'
+            \ 'colorscheme': 'nord'
             \ }
 
 " Customize fzf
