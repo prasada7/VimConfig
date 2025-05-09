@@ -11,5 +11,6 @@
 !install.sh
 !plugin/
 !plugins.vim
+!lsp.vim
 !snippets/
 autoload/plug*
