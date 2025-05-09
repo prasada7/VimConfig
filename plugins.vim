@@ -31,9 +31,6 @@ Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'romainl/Apprentice'
 Plug 'w0rp/ale'
-if executable("node")
-    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-endif
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'moll/vim-node'
 Plug 'pbogut/fzf-mru.vim'
@@ -42,6 +39,7 @@ Plug 'ryanoasis/vim-devicons' | Plug 'bryanmylee/vim-colorscheme-icons'
 Plug 'arcticicestudio/nord-vim'
 Plug 'prasada7/toggleterm.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'yegappan/lsp'
 
 " Neo vim plugins
 if has('nvim')
@@ -75,9 +73,6 @@ let g:mta_filetypes = {
 
 " File types where closetags should work
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.marko,*.blade.php'
-
-" Set the coc next key
-let g:coc_snippet_next = "<tab>"
 
 " Snipmate configuration
 " Use legacy parser for snipmate extension
