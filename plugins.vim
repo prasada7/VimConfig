@@ -39,7 +39,10 @@ Plug 'ryanoasis/vim-devicons' | Plug 'bryanmylee/vim-colorscheme-icons'
 Plug 'arcticicestudio/nord-vim'
 Plug 'prasada7/toggleterm.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'yegappan/lsp'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " Neo vim plugins
 if has('nvim')
