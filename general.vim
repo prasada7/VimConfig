@@ -90,19 +90,3 @@ endif
 set runtimepath+=~/.vim/plugin/
 
 set clipboard="unnamed"
-
-" Set the color scheme
-set t_Co=256
-set termguicolors
-let g:colors_name = g:color_scheme " UPDATE COLORSCHEME NAME HERE
-
-if g:colors_name == 'apprentice'
-    color apprentice | color apprentice_ext
-elseif g:colors_name == 'seoul256'
-    let g:seoul256_background = 233
-    color seoul256
-    set background=dark
-    silent! highlight LineNr ctermbg=233 guibg=#121212
-else
-    execute "color" . " " . g:colors_name
-endif

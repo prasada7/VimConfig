@@ -20,7 +20,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
-Plug 'junegunn/seoul256.vim'
 Plug 'Yggdroot/indentLine'
 if has("python")
     Plug 'valloric/matchtagalways'

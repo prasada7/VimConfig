@@ -4,6 +4,7 @@
 runtime ~/.vim variables.vim
 runtime ~/.vim plugins.vim
 runtime ~/.vim general.vim
+runtime ~/.vim color_scheme.vim
 runtime ~/.vim functions.vim
 runtime ~/.vim lsp.vim
 

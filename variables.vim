@@ -1,1 +1,1 @@
-let g:color_scheme = 'apprentice'
+let g:color_scheme = 'nord'
