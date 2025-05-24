@@ -18,6 +18,10 @@ function! s:on_lsp_buffer_enabled() abort
     let g:lsp_format_sync_timeout = 1000
     autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
 
+    " Customizations
+    let g:lsp_diagnostics_virtual_text_align = 'after'
+    highlight Error guibg=#455e6e guifg=#dde9f0
+
     " refer to doc to add more commands
 endfunction
 
@@ -25,5 +29,4 @@ augroup lsp_install
     au!
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-    let g:lsp_diagnostics_virtual_text_align = 'after'
 augroup END
