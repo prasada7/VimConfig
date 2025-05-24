@@ -1,6 +1,7 @@
 " vim: foldmethod=marker
 " Padmanaban Prasad
 " Source necessary config files {{{
+runtime ~/.vim variables.vim
 runtime ~/.vim plugins.vim
 runtime ~/.vim general.vim
 runtime ~/.vim functions.vim

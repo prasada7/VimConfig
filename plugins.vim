@@ -36,7 +36,7 @@ Plug 'moll/vim-node'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'ryanoasis/vim-devicons' | Plug 'bryanmylee/vim-colorscheme-icons'
-Plug 'arcticicestudio/nord-vim'
+Plug 'nordtheme/vim'
 Plug 'prasada7/toggleterm.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'prabirshrestha/vim-lsp'
@@ -127,7 +127,7 @@ let g:lightline = {
             \ 'component_function': {
             \    'gitbranch': 'fugitive#head'
             \ },
-            \ 'colorscheme': 'nord'
+            \ 'colorscheme': g:color_scheme
             \ }
 
 " Customize fzf

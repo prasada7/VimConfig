@@ -1,16 +1,3 @@
-# Ignore everything except for a explicitly specified files
-/*
-/*/
-!.gitignore
-!.vimrc
-!README.md
-!autoload/
-!colors/
-!functions.vim
-!general.vim
-!install.sh
-!plugin/
-!plugins.vim
-!lsp.vim
-!snippets/
-autoload/plug*
+bundle
+.netrwhist
+autoload

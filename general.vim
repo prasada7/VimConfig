@@ -94,7 +94,7 @@ set clipboard="unnamed"
 " Set the color scheme
 set t_Co=256
 set termguicolors
-let g:colors_name = 'nord' " UPDATE COLORSCHEME NAME HERE
+let g:colors_name = g:color_scheme " UPDATE COLORSCHEME NAME HERE
 
 if g:colors_name == 'apprentice'
     color apprentice | color apprentice_ext
